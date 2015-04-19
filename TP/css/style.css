@@ -91,6 +91,25 @@ a.nav:hover{
     font-weight: bold;
 }
 
+table{
+    margin: 25px;
+    background-color: white;
+}
+table, tr, th{
+    border: 1px solid black;   
+}
+th{
+    padding: 5px;
+}
+
+thead{
+ background-color: cadetblue;
+}
+
+tbody{
+ background-color: khaki;
+}
+
 article{
     margin-left: 40px;
     margin-top: 30px;
@@ -171,9 +190,9 @@ iframe.youtube{
 
 form textarea{
     float: right;
+    resize: none;
     width: 450px;
     height: 100px;
-    resize: none;
 }
 
 form input[type="submit"]{
