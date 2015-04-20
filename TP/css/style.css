@@ -177,15 +177,16 @@ a.side{
     
 }
 
+div.youtube{
+    text-align: center;
+    width: 95%;
+}
+
 iframe.youtube{
-    display:block;
-    position:inherit;
-    margin-left: auto;
-    box-shadow: 5px 5px 5px rgb(51,51,51);
-    border: 4px solid #8AC007;
-    left: 14%;
     width: 640px;
     height: 360px;
+    box-shadow: 5px 5px 5px rgb(51,51,51);
+    border: 4px solid #8AC007;
 }
 
 form textarea{
