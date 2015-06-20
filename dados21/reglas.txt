@@ -1,0 +1,14 @@
+Dos jugadores. Los jugadores solo pueden jugar por turno.
+
+
+Juego del 21 con dados.
+Se tiran los dados tantas veces como el jugador quiera, debe aproximar la suma de las tiradas a 21.
+
+Si se pasa de 21 pierde.
+
+El número 21 se debe poder cargar desde un input.(botones)
+
+En este caso hay dos botones:
+volver a tirar y terminar el turno
+
+(suma lo que lleva acumulado en el turno de puntaje).
