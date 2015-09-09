@@ -1,14 +1,3 @@
-/*function slide-ej(tipo){
-    $('#ejerc1').Attr("src","img/ejercicios/"+tipo"/1.jpg");
-    $('#ejerc2').Attr("src","img/ejercicios/"+tipo"/2.jpg");
-    $('#ejerc3').Attr("src","img/ejercicios/"+tipo"/3.jpg");
-    $('#ejerc4').Attr("src","img/ejercicios/"+tipo"/4.jpg");
-};
-
-en html: onclick="slide-ej(tipo)"
-
-*/
-
 $(document).ready(function()
     { 
     $('#myCarousel').carousel({ interval: 3000, cycle: true }); 
