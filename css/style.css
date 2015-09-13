@@ -56,7 +56,6 @@ p {
     color: #fff;
     background-color: #222;
     background-image: url(../img/ejercicios/ejercicios.jpg);
-    background- opacity: 0.5;
 }
 /* /botones */
 
@@ -71,10 +70,18 @@ div .alimentos{
 }
 
 /* <PRESENTACION> */
-#presentacion{
+#presentacion,#contact{
     background-color: #FFDA66;
 }    
 
+#presentacion{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+div .youtube{
+    text-align: center;
+}
 iframe.youtube{
     width: 640px;
     height: 360px;
@@ -211,7 +218,10 @@ header .header-content .header-content-inner p {
 }
 
 /* SECTION */
-.section-heading {margin-top: 0;}
+.section-heading {
+    margin-top: 0;
+    text-align: center;
+}
 .service-box {
     margin: 50px auto 0;
     max-width: 400px;

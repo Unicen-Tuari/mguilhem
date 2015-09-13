@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-09-12 22:54:56
+<?php /* Smarty version 3.1.27, created on 2015-09-14 01:14:21
          compiled from "/opt/lampp/htdocs/progweb2/templates/home.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:173177933855f491201e5889_81146847%%*/
+/*%%SmartyHeaderCode:109347112055f6034dda8741_08202905%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '15abdf897194a380fe4b4fdc8375700464fcb3f4' => 
     array (
       0 => '/opt/lampp/htdocs/progweb2/templates/home.tpl',
-      1 => 1441583556,
+      1 => 1442186034,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '173177933855f491201e5889_81146847',
+  'nocache_hash' => '109347112055f6034dda8741_08202905',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_55f4912025d546_79367877',
+  'unifunc' => 'content_55f6034de26506_53035720',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_55f4912025d546_79367877')) {
-function content_55f4912025d546_79367877 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_55f6034de26506_53035720')) {
+function content_55f6034de26506_53035720 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '173177933855f491201e5889_81146847';
+$_smarty_tpl->properties['nocache_hash'] = '109347112055f6034dda8741_08202905';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +113,7 @@ $_smarty_tpl->properties['nocache_hash'] = '173177933855f491201e5889_81146847';
         </div>
     </section>
     
-<div class="row">
+
     <section id="presentacion">
     <h1 class="section-heading">Presentaci&oacute;n</h1>
     <hr/>
@@ -138,8 +138,8 @@ $_smarty_tpl->properties['nocache_hash'] = '173177933855f491201e5889_81146847';
         <li>Cuida tus carbohidratos: Ingerir una dieta muy alta en carbohidratos incrementa el NPY, el cual te hace sentir hambre, as&iacute; que deber&aacute;s asegurarte de que menos de 50 por ciento de tu dieta provenga de los carbohidratos. Aseg&uacute;rate de que la mayor&iacute;a de tus carbohidratos sean complejos, como los granos integrales y los vegetales.
         </li>
     </ol>
-        </section>
-</div>
+    </section>
+
     
     <!-- Cambia tu Estilo de Vida -->
     <section id="services">
@@ -204,10 +204,10 @@ $_smarty_tpl->properties['nocache_hash'] = '173177933855f491201e5889_81146847';
         <div class="container">
             <form class="consulta">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Consultas&#63; Contactame&#33; &#59;&#41;</h2>
+                    <h2 class="section-heading">Te ha servido lo publicado&#63; Tienes Preguntas&#63; <br/>Consultame&#33; &#59;&#41;</h2>
                     <hr class="primary"> <!-- separador -->
                 </div>
-                <textarea id="textconsulta" name="Mensaje" placeholder="Consulta" rows="4" cols="50"></textarea><br/><br/>
+                <textarea id="textconsulta" name="Mensaje" placeholder="Deja tu consulta" rows="4" cols="50"></textarea><br/><br/>
                 Nombre: <input type="text" name="nombre"/><br/><br/>
                 Email: &nbsp;&nbsp;&nbsp;&nbsp;<input name="mail"/><br/><br/><br/>
                 <input type="submit" value="Enviar"/><br/>

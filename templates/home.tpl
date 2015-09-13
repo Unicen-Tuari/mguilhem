@@ -87,7 +87,7 @@
         </div>
     </section>
     
-<div class="row">
+
     <section id="presentacion">
     <h1 class="section-heading">Presentaci&oacute;n</h1>
     <hr/>
@@ -112,8 +112,8 @@
         <li>Cuida tus carbohidratos: Ingerir una dieta muy alta en carbohidratos incrementa el NPY, el cual te hace sentir hambre, as&iacute; que deber&aacute;s asegurarte de que menos de 50 por ciento de tu dieta provenga de los carbohidratos. Aseg&uacute;rate de que la mayor&iacute;a de tus carbohidratos sean complejos, como los granos integrales y los vegetales.
         </li>
     </ol>
-        </section>
-</div>
+    </section>
+
     
     <!-- Cambia tu Estilo de Vida -->
     <section id="services">
@@ -178,10 +178,10 @@
         <div class="container">
             <form class="consulta">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Consultas&#63; Contactame&#33; &#59;&#41;</h2>
+                    <h2 class="section-heading">Te ha servido lo publicado&#63; Tienes Preguntas&#63; <br/>Consultame&#33; &#59;&#41;</h2>
                     <hr class="primary"> <!-- separador -->
                 </div>
-                <textarea id="textconsulta" name="Mensaje" placeholder="Consulta" rows="4" cols="50"></textarea><br/><br/>
+                <textarea id="textconsulta" name="Mensaje" placeholder="Deja tu consulta" rows="4" cols="50"></textarea><br/><br/>
                 Nombre: <input type="text" name="nombre"/><br/><br/>
                 Email: &nbsp;&nbsp;&nbsp;&nbsp;<input name="mail"/><br/><br/><br/>
                 <input type="submit" value="Enviar"/><br/>
