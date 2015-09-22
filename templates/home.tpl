@@ -9,7 +9,7 @@
     
 
     <title>Alimentaci&oacute;n Sana</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Cargamos Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
@@ -71,6 +71,72 @@
 
     <!-- /CABEZERA -->
 
+    <!-- NOTICIAS FEATURE -->
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Lista de Tareas</h1>
+      </div>
+        
+      <div class="row">
+        <div class="col-md-6">
+          <label class="control-label" for="nombre">Tarea</label>
+          <ul class="list-group">
+            {foreach $tareas as $tarea}
+            <li class="list-group-item">
+                    {$tarea['tarea']}
+                  <a class="glyphicon glyphicon-trash" href="index.php?action=borrar_tarea&id_task={$tarea['id']}"></a>
+                  
+                {if isset($tarea['imagenes'])}
+                    {foreach $tarea['imagenes'] as $imagen}
+                    <img src="{$imagen['path']}" alt="imagen-{$imagen['id']}-tarea-{$tarea['id']}" class="img-thumbnail" />
+                    {/foreach}
+                {/if}
+            {/foreach}
+          </ul>
+        </div>
+      </div>
+
+        <!-- caja de errores -->
+      <div class="row">
+        <div class="col-md-6">
+          {if count($errores) gt 0}
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Errores</h3>
+            </div>
+            <ul>
+              {foreach $errores as $error}
+                <li>{$error}</li>
+              {/foreach}
+            </ul>
+          </div>
+          {/if}
+        </div>
+      </div>
+        
+        
+      <div class="row">
+        <div class="col-md-6">
+          <form action="index.php?action=agregar_tarea" method="POST" enctype="multipart/form-data">
+            <!-- html -->
+            <div class="form-group">
+                <label for="task">Tarea</label>
+                <input type="text" class="form-control" id="task" name="task" placeholder="Tarea">
+            </div>
+            <div class="form-group">
+              <label for="imagesToUpload">Imagenes</label>
+              <input type="file" name="imagesToUpload[]" id="imagesToUpload" multiple/>
+            </div>
+
+            <button type="submit" class="btn btn-default">Agregar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- /NOTICIAS FEATURE -->
+    
     <!-- CONTENEDOR WEB AJAX -->
 <div id="contenedorweb">
     

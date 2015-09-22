@@ -1,17 +1,28 @@
 <?php
 include_once 'libs/Smarty.class.php';
 
-class viewclass{
+class TareasView {
     
-private $smarty;
+    private $smarty;
+    private $errores;
+
 
 function __construct(){
-    $this->smarty = new Smarty();
+  $this->smarty = new Smarty();
+  $this->errores = array();
 }
-    
-function mostrar(){
-    $this->smarty->display('home.tpl');
+
+function mostrar($tareas){
+  $this->smarty->assign('errores', $this->errores);
+  $this->smarty->assign('tareas', $tareas);
+  $this->smarty->display('home.tpl');
 }
+
+function mostrarError($error){
+  array_push($this->errores, $error);
+}
+
+
 
 }
 
