@@ -4,7 +4,7 @@ class TareasModel {
   private $db;
 
   function __construct() {
-      $this->db = new PDO('mysql:host=localhost;dbname=tasks;charset=utf8', 'root', '');
+      $this->db = new PDO('mysql:host=localhost;dbname=novedades;charset=utf8', 'root', '');
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
@@ -15,18 +15,17 @@ class TareasModel {
       $destinos_finales[] = $carpeta.uniqid().$imagenes["name"][$key];
       move_uploaded_file($value, end($destinos_finales));
     }
-
     return $destinos_finales;
   }
 
   function getTareas(){
     $tareas = array();
-    $consulta = $this->db->prepare("SELECT * FROM tarea");
+    $consulta = $this->db->prepare("SELECT * FROM categoria");
     $consulta->execute();
 //Todas las tareas
     while($tarea = $consulta->fetch()) {
-      $consultaImagenes = $this->db->prepare("SELECT * FROM imagen where fk_id_tarea=?");
-      $consultaImagenes->execute(array($tarea['id']));
+      $consultaImagenes = $this->db->prepare("SELECT * FROM noticia where fk_id_cat=?");
+      $consultaImagenes->execute(array($tarea['id_cat']));
       $imagenes_tarea = $consultaImagenes->fetchAll();
       $tarea['imagenes'] = $imagenes_tarea;
       $tareas[]=$tarea;
@@ -35,39 +34,45 @@ class TareasModel {
     return $tareas;
   }
 
-function agregarTarea($tarea, $imagenes){
+
+function agregarTarea($tarea, $imagenes,$categoria,$titulo){
     try{
         $destinos_finales=$this->subirImagenes($imagenes);
         
         //Inserto la tarea
         $this->db->beginTransaction(); //inicio transaccion
-        $consulta = $this->db->prepare('INSERT INTO tarea(tarea) VALUES(?)');
-        $consulta->execute(array($tarea));
         
-       
-        $id_tarea = $this->db->lastInsertId(); // error
+        // si no existe la categoria, la crea
+        $consulta = $this->db->prepare('SELECT * FROM categoria WHERE nombre = ?');
+        $consulta->execute(array($categoria));
+        $id = $consulta->fetch();
+
+        if ($id == null){
+        
+        $consulta = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
+        $consulta->execute(array($categoria));
+        $id_tarea = $this->db->lastInsertId();
+        }
+        else{
+        $id_tarea = $id['id_cat'];
+        }
+
         
         
         //Insertar las imagenes
         foreach ($destinos_finales as $key => $value) {
-            $consulta = $this->db->prepare('INSERT INTO imagen(fk_id_tarea,path) VALUES(?,?)');
-            $consulta->execute(array($id_tarea, $value));
+            $consulta = $this->db->prepare('INSERT INTO noticia(fk_id_cat,path,descripcion,titulo) VALUES(?,?,?,?)');
+            $consulta->execute(array($id_tarea, $value,$tarea,$titulo));
         }
         $this->db->commit(); //todo ok, subo transaccion
     }
-    
     catch(Exception $e){
     $this->db->rollBack();
     }
 }
 
   function borrarTarea($id_tarea){
-    $consulta = $this->db->prepare('DELETE FROM tarea WHERE id=?');
-    $consulta->execute(array($id_tarea));
-  }
-
-  function realizarTarea($id_tarea){
-    $consulta = $this->db->prepare('UPDATE tarea SET realizada=1 WHERE id=?');
+    $consulta = $this->db->prepare('DELETE FROM noticia WHERE id=?');
     $consulta->execute(array($id_tarea));
   }
 

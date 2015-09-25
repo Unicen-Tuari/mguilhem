@@ -47,6 +47,9 @@ p {
     line-height: 1.5;
 }
 
+.dropdown-toggle{
+    margin-top: 10px
+}
 /* botones */
 .bg-primary {
     background-color: #f05f40;
@@ -91,6 +94,9 @@ iframe.youtube{
 }
 
 /* <NAVIGATION>  */
+a.page-scroll{
+	cursor:pointer;
+}
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;

@@ -15,7 +15,7 @@ function __construct(){
 function mostrar($tareas){
   $this->smarty->assign('errores', $this->errores);
   $this->smarty->assign('tareas', $tareas);
-  $this->smarty->display('home.tpl');
+  $this->smarty->display('index.tpl');
 }
 
 function mostrarError($error){

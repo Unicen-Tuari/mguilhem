@@ -9,7 +9,7 @@ class ControllerClass{
 
     function __construct(){
         $this->model = new TareasModel();
-        $this->view = new TareasView();
+        $this->view  = new TareasView();
     }
 
     function mostrarHome(){
@@ -18,8 +18,8 @@ class ControllerClass{
 
     
   function agregarTarea(){
-    if(isset($_REQUEST['task']) && isset($_FILES['imagesToUpload'])){
-        $this->model->agregarTarea($_REQUEST['task'],$_FILES['imagesToUpload']);
+    if(isset($_REQUEST['task']) && isset($_REQUEST['titulo']) && isset($_FILES['imagesToUpload']) && isset($_REQUEST['categoria'])){
+        $this->model->agregarTarea($_REQUEST['task'],$_FILES['imagesToUpload'],$_REQUEST['categoria'],$_REQUEST['titulo']);
       }
     else{
       $this->view->mostrarError('La tarea que intenta crear esta vacia');
