@@ -32,16 +32,16 @@
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand page-scroll" onclick="cargarweb('home-min.html')">ALIMENTACI&Oacute;N SANA</a>
+                <a class="navbar-brand page-scroll"  onclick="cargarweb('home_min')" href="#header">ALIMENTACI&Oacute;N SANA</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" onclick="cargarweb('comidas.html')">COMIDAS</a>
+                        <a class="page-scroll" href="#contenedorweb" onclick="cargarweb('comidas')">COMIDAS</a>
                     </li>
                     <li>
-                        <a class="page-scroll" onclick="cargarweb('main_ejercicios.html')">ENTRENAR</a>
+                        <a class="page-scroll" href="#contenedorweb" onclick="cargarweb('ejercicios')">ENTRENAR</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">CONTACTO</a>
@@ -56,7 +56,7 @@
     <!-- /NAVIGATION -->
 
     <!-- CABEZERA -->
-    <header>
+    <header id="header">
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>MEJORA TU VIDA!</h1>

@@ -2,7 +2,7 @@
 
 <section id="comidas">
     
-   <button type="button" onclick="cargarweb('home-min.html')" class="btn btn-info "><img src="img/back.png"/> </button>
+   <button type="button" onclick="cargarweb('home_min')" class="btn btn-info "><img src="img/back.png"/> </button>
     
 <h2>Haz tu propia dieta a Medida</h2>
 <ol>

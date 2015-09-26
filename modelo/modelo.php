@@ -18,10 +18,16 @@ class TareasModel {
     return $destinos_finales;
   }
 
-  function getTareas(){
+  function getTareas($categoria){
     $tareas = array();
+    if ($categoria=="todos"){
     $consulta = $this->db->prepare("SELECT * FROM categoria");
     $consulta->execute();
+    }
+    else {
+    $consulta = $this->db->prepare("SELECT * FROM categoria where nombre=?");
+    $consulta->execute($categoria);
+    }
 //Todas las tareas
     while($tarea = $consulta->fetch()) {
       $consultaImagenes = $this->db->prepare("SELECT * FROM noticia where fk_id_cat=?");

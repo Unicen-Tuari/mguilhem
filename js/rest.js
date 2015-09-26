@@ -1,15 +1,14 @@
 function cargarweb(web){
 $.ajax({
-    type: "GET",
-    dataType: "html",
-    url: web,
+    type:       "GET",
+    dataType:   "html",
+    url: 'index.php?action='+web,
     success: function(data){
         $("#contenedorweb").html(data);
     },
     error: function(){
-        alert("error");
+        alert("Error al Cargar la Pagina de " + web);
     }
-		
 })
 };
 

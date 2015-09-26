@@ -50,6 +50,7 @@ p {
 .dropdown-toggle{
     margin-top: 10px
 }
+
 /* botones */
 .bg-primary {
     background-color: #f05f40;
@@ -122,7 +123,7 @@ a.page-scroll{
 .navbar-default .nav>li>a:focus:hover {color: #f05f40;}
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important; /*!important RULE este color no va a cambiar */
+     /*!important RULE este color no va a cambiar */
     background-color: transparent;
 }
 .navbar-default .nav > li.active>a:hover,

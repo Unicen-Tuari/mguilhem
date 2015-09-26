@@ -1,15 +1,17 @@
 <!DOCTYPE html>  
-<!-- NOTICIAS FEATURE -->
+<!-- CONTENEDOR WEB AJAX -->
+<div id="contenedorweb">
 
-        <div class="col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2">
+    <!-- NOTICIAS FEATURE -->
+
+        <div class="col-xs-4 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2">
             <div class="dropdown">
                 
-                <button class="btn btn-default btn-lg dropdown-toggle btn-success" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    CATEGORIAS
-                    <span class="caret"></span>
+                <button class="btn btn-default btn-lg dropdown-toggle btn-success" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">CATEGORIAS<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">Todos</a></li>
+                    <li role="separator" class="divider"></li>
                     {foreach $tareas as $tarea}
                         <li><a href="#">{$tarea['nombre']}</a></li>
                     {/foreach}
@@ -92,8 +94,7 @@
     
     <!-- /NOTICIAS FEATURE -->
     
-    <!-- CONTENEDOR WEB AJAX -->
-<div id="contenedorweb">
+
     
     <section class="bg-primary" id="about">
         <div class="container">
@@ -102,7 +103,7 @@
                     <h1 class="section-heading">DIETA es una<br/> Mala Palabra&#33;</h1>
                     <hr class="light"> <!-- separador claro -->
                     <h3>Cuando tengas hambre Nunca te diremos que NO comas, pero SI te diremos cu&aacute;les son las mejores opciones para t&iacute;</h3>
-                    <a onclick="cargarweb('comidas.html')" class="btn btn-primary">COMIDAS</a>
+                    <a onclick="cargarweb('comidas')" class="btn btn-primary ">COMIDAS</a>
                 </div>
             </div>
         </div>
@@ -188,7 +189,7 @@
         <div class="container text-center">
             <div class="entrena_ahora">
                 <h2>&#191;Hace mucho que no entrenas&#63;</h2>
-                <a onclick="cargarweb('main_ejercicios.html')" class="btn btn-primary wow tada" data-wow-delay=".8s" data-wow-iteration="2">ENTRENA AHORA&#33;</a>
+                <a onclick="cargarweb('ejercicios')" class="btn btn-primary wow tada" data-wow-delay=".8s" data-wow-iteration="2">ENTRENA AHORA&#33;</a>
             </div>
         </div>
     </aside>
