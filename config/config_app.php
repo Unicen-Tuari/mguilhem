@@ -9,5 +9,6 @@ class ConfigApp {
   public static $ACTION_COMIDAS = 'comidas';
   public static $ACTION_EJERCICIOS = 'ejercicios';
   public static $ACTION_HOME = 'home_min';
+  public static $ACTION_DROPDOWN = 'dropdown';
 }
  ?>

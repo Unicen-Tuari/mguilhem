@@ -2,7 +2,23 @@ function cargarweb(web){
 $.ajax({
     type:       "GET",
     dataType:   "html",
-    url: 'index.php?action='+web,
+    url:        "index.php",
+    data: {action: web},
+    success: function(data){
+        $("#contenedorweb").html(data);
+    },
+    error: function(){
+        alert("Error al Cargar la Pagina de " + web);
+    }
+})
+};
+
+function cargarnoticias(categoria,web){
+$.ajax({
+    type:       "GET",
+    dataType:   "html",
+    url:        "index.php",
+    data: {action: web,dropdown : categoria},
     success: function(data){
         $("#contenedorweb").html(data);
     },
@@ -19,13 +35,12 @@ function getInformationByGroup(grupo){
      url: "http://web-unicen.herokuapp.com/api/group/" + grupo,
      success: function(data){
          
-         var html = "";
-      
-         var alimento ="";
-         var calorias = "";
-         var proteinas = "";
-         var lipidos = "";
-         var hcarbono = "";
+         var html       = "";
+         var alimento   = "";
+         var calorias   = "";
+         var proteinas  = "";
+         var lipidos    = "";
+         var hcarbono   = "";
          
          for (var i = 0; i < data.information.length;i++) 
          {

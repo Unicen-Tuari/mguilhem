@@ -32,8 +32,13 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
                 break;
             case ConfigApp::$ACTION_HOME:
                 $controller = new ControllerClass();
-                $categoria="todos";
+                $categoria='todos';
                 $this->view->home_min($this->model->getTareas($categoria));
+                break;
+            case ConfigApp::$ACTION_DROPDOWN:
+                $controller = new ControllerClass();
+                $categoria=$_REQUEST['dropdown'];
+                $this->view->dropdown($this->model->getTareas($categoria),$this->model->getTareas('todos'));
                 break;
             case ConfigApp::$ACTION_AGREGAR_TAREA:
                 $controller = new ControllerClass();

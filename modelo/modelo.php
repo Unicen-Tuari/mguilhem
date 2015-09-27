@@ -26,7 +26,7 @@ class TareasModel {
     }
     else {
     $consulta = $this->db->prepare("SELECT * FROM categoria where nombre=?");
-    $consulta->execute($categoria);
+    $consulta->execute(array($categoria));
     }
 //Todas las tareas
     while($tarea = $consulta->fetch()) {

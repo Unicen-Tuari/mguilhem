@@ -10,10 +10,10 @@
                 <button class="btn btn-default btn-lg dropdown-toggle btn-success" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">CATEGORIAS<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Todos</a></li>
+                    <li><a onclick="cargarweb('home_min')">Todos</a></li>
                     <li role="separator" class="divider"></li>
-                    {foreach $tareas as $tarea}
-                        <li><a href="#">{$tarea['nombre']}</a></li>
+                    {foreach $todascat as $tarea}
+                        <li><a onclick="cargarnoticias('{$tarea['nombre']}','dropdown')">{$tarea['nombre']}</a></li>
                     {/foreach}
                 </ul>
             </div>
