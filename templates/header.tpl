@@ -9,7 +9,7 @@
     
 
     <title>Alimentaci&oacute;n Sana</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <!-- Cargamos Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
@@ -72,28 +72,4 @@
     <!-- /CABEZERA -->
 
 
-
-
-
-    <!-- jQuery  -->
-    <script src="js/jquery.js"></script>
-    <!-- SE CARGA ANTES QUE EL JS DE BOOTSTRAP!!!-->
-    
-    <!-- Bootstrap JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    
-    <!-- JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
-    
-    <!-- INICIO EFECTOS JAVASCRIPT -->
-    <script src="js/creative.js"></script>
-    
-    <!-- SISTEMA REST -->
-    <script src="js/rest.js"></script>
-
-
-</body>
-
-</html>
+<div id="contenedorweb">

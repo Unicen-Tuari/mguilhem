@@ -1,114 +1,42 @@
-<!DOCTYPE html>  
 <!-- CONTENEDOR WEB AJAX -->
-<div id="contenedorweb">
 
+    <div class="novedades col-lg-12">
+        
     <!-- NOTICIAS FEATURE -->
-
-        <div class="col-xs-4 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2">
-            <div class="dropdown">
-                
-                <button class="btn btn-default btn-lg dropdown-toggle btn-success" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">CATEGORIAS<span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a onclick="cargarweb('home_min')">Todos</a></li>
-                    <li role="separator" class="divider"></li>
-                    {foreach $todascat as $tarea}
-                        <li><a onclick="cargarnoticias('{$tarea['nombre']}','dropdown')">{$tarea['nombre']}</a></li>
-                    {/foreach}
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-sm-8 col-md-7 ">
-            <h1>Novedades</h1>
-        </div>
-
-        <div class="container">
-      <div class="row">
-
-          
-        <div class="col-sm-12 col-md-12">
-          <ul class="list-group">
-            {foreach $tareas as $tarea}
-                <li class="list-group-item">Categoria: 
-                    {$tarea['nombre']}
-
-                    {foreach $tarea['imagenes'] as $imagen}
-                        <h2>{$imagen["titulo"]} <a class="glyphicon glyphicon-trash" href="index.php?action=borrar_tarea&id_task={$imagen['id']}"></a></h2>
-                    
-                        <br/><img src="{$imagen['path']}" alt="imagen-{$imagen['id']}-tarea-{$tarea['id']}" class="img-thumbnail" /><br/>
-                        {$imagen["descripcion"]}    
+        <h1 class="novedades">Novedades</h1>
+        <div class="container noticia col-lg-12">  
+            <ul>
+            {foreach $tareas as $categoria}
+                    {foreach $categoria['imagenes'] as $noticia}
+                        <li class="noticia col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4">
+                        <p class="noticia">Categoria: {$categoria['nombre']}</p>
+                        <a class="miniatura">
+                        <img data-toggle="modal" data-target="#myModal" onclick="llamarmodel('{$categoria['nombre']}','{$noticia['titulo']}','{$noticia['path']}','{$noticia['descripcion']}')" class="img-rounded col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4" alt="" src="{$noticia['path']}"/>
+                        <span>{$noticia["titulo"]}</span>
+                        </a>
+                        </li>
+                        <!--<p>{$noticia["descripcion"]}</p>-->
                     {/foreach}
             {/foreach}
-          </ul>
-            
-        </div>
-      </div>
-
-        <!-- caja de errores -->
-      <div class="row">
-        <div class="col-md-6">
-          {if count($errores) gt 0}
-          <div class="panel panel-danger">
-            <div class="panel-heading">
-                <h3 class="panel-title">Errores</h3>
-            </div>
-            <ul>
-              {foreach $errores as $error}
-                <li>{$error}</li>
-              {/foreach}
             </ul>
-          </div>
-          {/if}
         </div>
-      </div>
-        
-        
-      <div class="row">
-        <div class="col-md-6">
-          <form action="index.php?action=agregar_tarea" method="POST" enctype="multipart/form-data">
-            <!-- html -->
-            <div class="form-group">
-                <label for="categoria">Categoria</label>
-                <input type="text" class="form-control" id="categoria" name="categoria" placeholder="categoria: Dieta/Ejercicio">
-            </div>
-            <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo de noticia">
-            </div>
-              <div class="form-group">
-                <label for="task">Texto</label>
-                <input type="text" class="form-control" id="task" name="task" placeholder="Descripcion">
-            </div>
-            
-            <div class="form-group">
-              <label for="imagesToUpload">Imagenes</label>
-              <input type="file" name="imagesToUpload[]" id="imagesToUpload" multiple/>
-            </div>
-
-            <button type="submit" class="btn btn-default">Agregar</button>
-          </form>
-        </div>
-      </div>
     </div>
-    
-    <!-- /NOTICIAS FEATURE -->
-    
 
+        
+    <!-- /NOTICIAS FEATURE -->
     
     <section class="bg-primary" id="about">
         <div class="container">
-            <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h1 class="section-heading">DIETA es una<br/> Mala Palabra&#33;</h1>
                     <hr class="light"> <!-- separador claro -->
                     <h3>Cuando tengas hambre Nunca te diremos que NO comas, pero SI te diremos cu&aacute;les son las mejores opciones para t&iacute;</h3>
                     <a onclick="cargarweb('comidas')" class="btn btn-primary ">COMIDAS</a>
                 </div>
-            </div>
+            
         </div>
     </section>
-    
+
 
     <section id="presentacion">
     <h1 class="section-heading">Presentaci&oacute;n</h1>
@@ -185,6 +113,7 @@
 
     
     <!-- Seccion GYM ENTRENA AHORA -->
+
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="entrena_ahora">
@@ -194,4 +123,14 @@
         </div>
     </aside>
 
-</div>
+<!-- MODAL -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" id="model">
+      <!-- Modal content-->
+    </div>
+  </div>
+
+
+<!-- /MODAL -->
+

@@ -78,8 +78,26 @@ function agregarTarea($tarea, $imagenes,$categoria,$titulo){
 }
 
   function borrarTarea($id_tarea){
+    //guarda categoria
+    
+    $consulta= $this->db->prepare('SELECT fk_id_cat FROM noticia WHERE id=?');
+    $consulta->execute(array($id_tarea));
+    $categoria= $consulta->fetch();
+    
+    //borra noticia
     $consulta = $this->db->prepare('DELETE FROM noticia WHERE id=?');
     $consulta->execute(array($id_tarea));
+    
+    //pregunta si categoria tiene noticias
+    $consulta = $this->db->prepare('SELECT * FROM noticia WHERE fk_id_cat=?');
+    $consulta->execute(array($categoria[0]));
+    $id = $consulta->fetch();
+      
+    //no tiene noticias? borra categoria
+    if ($id == null){ 
+    $consulta = $this->db->prepare('DELETE FROM categoria WHERE id_cat=?');
+    $consulta->execute(array($categoria[0]));
+    }
   }
 
 
