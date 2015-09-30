@@ -30,7 +30,7 @@
                 <div class="col-lg-4 col-sm-6">
                     <li class="slide-box">
                         <img class="img-responsive" src="img/ejercicios/abdomen.jpg"/>
-                        <div id="abdomen" class="slide-box-caption" href="#">
+                        <div id="abdomen" class="slide-box-caption">
                             <div class="slide-box-caption-content">
                                 <div class="project-name">
                                     ABDOMEN
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <li class="slide-box">
-                        <img class="img-responsive" src="img/ejercicios/antebrazo.jpg" alt=""/>
+                        <img class="img-responsive" src="img/ejercicios/antebrazo.jpg"/>
                         <div id="antebrazos" class="slide-box-caption">
                             <div class="slide-box-caption-content">
                                 <div class="project-name">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <li class="slide-box">
-                        <img class="img-responsive" src="img/ejercicios/bicep.jpg" alt="">
+                        <img class="img-responsive" src="img/ejercicios/bicep.jpg" />
                         <div id="biceps" class="slide-box-caption">
                             <div class="slide-box-caption-content">
                                 <div class="project-name">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <li class="slide-box">
-                        <img class="img-responsive" src="img/ejercicios/pecho.jpg" alt="">
+                        <img class="img-responsive" src="img/ejercicios/pecho.jpg" />
                         <div id="pecho" class="slide-box-caption">
                             <div class="slide-box-caption-content">
                                 <div class="project-name">

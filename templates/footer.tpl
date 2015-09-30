@@ -6,7 +6,7 @@
         <div class="container contact">
             <form class="consulta">
                 <div class="text-center">
-                    <h1 class="section-heading contact">Te ha servido lo publicado&#63; Tienes Preguntas&#63; <br/>Consultame&#33; &#59;&#41;</h1>
+                    <h1 class="section-heading contact">Te ha servido lo publicado&#63;<br/>Tienes Preguntas&#63;</h1>
                     <hr class="primary"> <!-- separador -->
                 </div>
                 <textarea id="textconsulta" name="Mensaje" placeholder="Deja tu consulta" rows="4" cols="50"></textarea><br/><br/>

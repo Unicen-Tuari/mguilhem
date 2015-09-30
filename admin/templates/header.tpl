@@ -3,52 +3,45 @@
 
 <head>
 
-    <meta charset="utf-8">                                                  <!-- tipo de caracter utf-8 -->
-    <meta name="author" content="Guilhem Maximiliano">                      <!-- Autor de página -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">    <!-- composición en los navegadores móviles -->
+    <meta charset="utf-8"/>                                                  <!-- tipo de caracter utf-8 -->
+    <meta name="author" content="Guilhem Maximiliano"/>                      <!-- Autor de página -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    <!-- composición en los navegadores móviles -->
     
-
-    <title>Alimentaci&oacute;n Sana</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Admin Alimentaci&oacute;n Sana</title>
+    
     <!-- Cargamos Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css"/>
+    
     <!-- Cargamos Awesome Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-    <!-- Efectos Animate CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/Awesome_Fonts.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/Awesome_Fonts2.css" type="text/css"/>
 
     <!-- Mi estilo CSS -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css"/>
 
 </head>
 
 <body>
-
-    <!-- jQuery  -->
-    <script src="js/jquery.js"></script>
-    <!-- SE CARGA ANTES QUE EL JS DE BOOTSTRAP!!!-->
     
-    <!-- Bootstrap JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
     
-    <!-- JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
+<!-- caja de errores -->
+      
+        <div class="col-md-12">
+          {if count($errores) gt 0}
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Errores</h3>
+            </div>
+            <ul>
+              {foreach $errores as $error}
+                <li>{$error}</li>
+              {/foreach}
+            </ul>
+          </div>
+          {/if}
+        </div>
+      
     
-    <!-- INICIO EFECTOS JAVASCRIPT -->
-    <script src="js/creative.js"></script>
-    
-    <!-- SISTEMA REST -->
-    <script src="js/rest.js"></script>
+<!-- CONTENEDOR WEB AJAX -->
+<div id="contenedorweb">
 
-    <!-- MODEL VER NOTICIAS-->
-    <script src="js/model.js"></script>
-
-</body>
-
-</html>

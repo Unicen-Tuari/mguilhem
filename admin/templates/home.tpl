@@ -1,11 +1,6 @@
-<!DOCTYPE html>  
-<!-- CONTENEDOR WEB AJAX -->
-
-<div id="contenedorweb">
-    <div class="novedades col-lg-12">
+<div class="novedades col-lg-12">
     
         <!-- NOTICIAS FEATURE ADMIN -->
-
         <div class="col-xs-4 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2">
             <div class="dropdown">
                 
@@ -46,24 +41,6 @@
             
         </div>
       </div>
-
-        <!-- caja de errores -->
-      <div class="row">
-        <div class="col-md-6">
-          {if count($errores) gt 0}
-          <div class="panel panel-danger">
-            <div class="panel-heading">
-                <h3 class="panel-title">Errores</h3>
-            </div>
-            <ul>
-              {foreach $errores as $error}
-                <li>{$error}</li>
-              {/foreach}
-            </ul>
-          </div>
-          {/if}
-        </div>
-      </div>
         
         
       <div class="row">
@@ -78,14 +55,16 @@
                 <label for="titulo">Titulo</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo de noticia">
             </div>
-              <div class="form-group">
-                <label for="task">Texto</label>
-                <input type="text" class="form-control" id="task" name="task" placeholder="Descripcion">
-            </div>
-            
+        
+
             <div class="form-group">
-              <label for="imagesToUpload">Imagenes</label>
-              <input type="file" name="imagesToUpload[]" id="imagesToUpload" multiple/>
+                <label for="task">Texto</label>
+                <textarea rows="4" cols="50" class="form-control" id="task" name="task" placeholder="Descripcion"></textarea>
+            </div>
+              
+            <div class="form-group">
+              <label for="imagesToUpload">Imagen</label>
+              <input type="file" name="imagesToUpload[]" id="imagesToUpload"/>
             </div>
 
             <button type="submit" class="btn btn-default">Agregar</button>

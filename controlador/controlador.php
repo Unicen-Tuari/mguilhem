@@ -35,52 +35,12 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
                 $categoria='todos';
                 $this->view->home_min($this->model->getTareas($categoria));
                 break;
-            case ConfigApp::$ACTION_DROPDOWN:
-                $controller = new ControllerClass();
-                $categoria=$_REQUEST['dropdown'];
-                $this->view->dropdown($this->model->getTareas($categoria),$this->model->getTareas('todos'));
-                break;
-            case ConfigApp::$ACTION_AGREGAR_TAREA:
-                $controller = new ControllerClass();
-                $controller->agregarTarea();
-                break;
-            case ConfigApp::$ACTION_BORRAR_TAREA:
-                $controller = new ControllerClass();
-                $controller->borrarTarea();
-                break;
             default:
                 echo 'Pagina no encontrada';
                 break;
             }
         }     
     }   
-
-    
-    
-    
-    
-  function agregarTarea(){
-    if(isset($_REQUEST['task']) && isset($_REQUEST['titulo']) && isset($_FILES['imagesToUpload']) && isset($_REQUEST['categoria'])){
-        $this->model->agregarTarea($_REQUEST['task'],$_FILES['imagesToUpload'],$_REQUEST['categoria'],$_REQUEST['titulo']);
-      }
-    else{
-      $this->view->mostrarError('La tarea que intenta crear esta vacia');
-    }
-    $categoria="todos";
-    $this->view->mostrarHome($this->model->getTareas($categoria));
-  }
-
-  function borrarTarea(){
-    if(isset($_REQUEST['id_task'])){
-      $this->model->borrarTarea($_REQUEST['id_task']);
-    }
-    else{
-      $this->view->mostrarError('La tarea que intenta borrar no existe');
-    }
-    $categoria="todos";
-    $this->view->mostrarHome($this->model->getTareas($categoria));
-  }
-
 
 }
 

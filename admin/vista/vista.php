@@ -1,5 +1,5 @@
 <?php
-require ('libs/Smarty.class.php');
+require ('../libs/Smarty.class.php');
 
 class TareasView {
     
@@ -10,15 +10,8 @@ class TareasView {
       $this->smarty = new Smarty();
       $this->errores = array();
     }
-
-    function comidas(){
-        $this->smarty->display('comidas.tpl');
-    }
-
-    function ejercicios(){
-        $this->smarty->display('ejercicios.tpl');
-    }
     
+    //cargar el contenedor con el home
     function home_min($tareas){
         $this->smarty->assign('errores', $this->errores);
         $this->smarty->assign('tareas', $tareas);
@@ -26,6 +19,7 @@ class TareasView {
         $this->smarty->display('home.tpl');
     }
     
+    //cuando se filtra por categoria
     function dropdown($tareas,$todascat){
         $this->smarty->assign('errores', $this->errores);
         $this->smarty->assign('tareas', $tareas);
@@ -37,6 +31,7 @@ class TareasView {
       array_push($this->errores, $error);
     }
 
+    //la primera vez q se carga la pág
     function mostrarHome($tareas){
         $this->smarty->assign('errores', $this->errores);
         $this->smarty->assign('tareas', $tareas);
