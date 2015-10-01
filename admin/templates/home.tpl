@@ -57,9 +57,9 @@
             </div>
         
 
-            <div class="form-group">
+              <div class="form-group">
                 <label for="task">Texto</label>
-                <textarea rows="4" cols="50" class="form-control" id="task" name="task" placeholder="Descripcion"></textarea>
+                <input type="text" class="form-control" id="task" name="task" placeholder="Descripcion">
             </div>
               
             <div class="form-group">
