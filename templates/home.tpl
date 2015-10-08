@@ -6,7 +6,7 @@
         <h1 class="novedades">Novedades</h1>
         <div class="container noticia col-lg-12">  
             <ul>
-            {foreach $tareas as $categoria}
+            {foreach $noticias as $categoria}
                     {foreach $categoria['imagenes'] as $noticia}
                         <li class="noticia col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4">
                         <p class="noticia">Categoria: {$categoria['nombre']}</p>
