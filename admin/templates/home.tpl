@@ -9,8 +9,8 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a onclick="cargarweb('home_min')">Todos</a></li>
                     <li role="separator" class="divider"></li>
-                    {foreach $todascat as $tarea}
-                        <li><a onclick="cargarnoticias('{$tarea['nombre']}','dropdown')">{$tarea['nombre']}</a></li>
+                    {foreach $todascat as $noticia}
+                        <li><a onclick="cargarnoticias('{$noticia['nombre']}','dropdown')">{$noticia['nombre']}</a></li>
                     {/foreach}
                 </ul>
             </div>
@@ -26,14 +26,14 @@
           
         <div class="col-sm-12 col-md-12">
           <ul class="list-group">
-            {foreach $tareas as $tarea}
+            {foreach $tareas as $noticia}
                 <li class="list-group-item">Categoria: 
-                    {$tarea['nombre']}
+                    {$noticia['nombre']}
 
-                    {foreach $tarea['imagenes'] as $imagen}
+                    {foreach $noticia['imagenes'] as $imagen}
                         <h2>{$imagen["titulo"]} <a class="glyphicon glyphicon-trash" href="index.php?action=borrar_tarea&id_task={$imagen['id']}"></a></h2>
                     
-                        <br/><img src="../{$imagen['path']}" alt="imagen-{$imagen['id']}-tarea-{$tarea['id']}" class="img-thumbnail" /><br/>
+                        <br/><img src="../{$imagen['path']}" alt="imagen-{$imagen['id']}-tarea-{$noticia['id']}" class="img-thumbnail" /><br/>
                         {$imagen["descripcion"]}    
                     {/foreach}
             {/foreach}
