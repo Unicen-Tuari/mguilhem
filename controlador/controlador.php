@@ -17,7 +17,7 @@ class ControllerClass{
 $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
     {
     $categoria="todos";
-    $this->view->mostrarHome($this->model->getTareas($categoria));
+    $this->view->mostrarHome($this->model->getNoticias($categoria));
     }
     else {
         switch ($_REQUEST[ConfigApp::$ACTION]) 
@@ -33,7 +33,7 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
             case ConfigApp::$ACTION_HOME:
                 $controller = new ControllerClass();
                 $categoria='todos';
-                $this->view->home_min($this->model->getTareas($categoria));
+                $this->view->home_min($this->model->getNoticias($categoria));
                 break;
             default:
                 echo 'Pagina no encontrada';
