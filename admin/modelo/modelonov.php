@@ -50,7 +50,7 @@ function agregarNoticia($tarea, $imagenes,$categoria,$titulo){
     try{
         $destinos_finales=$this->subirImagenes($imagenes);
         
-        //Inserto la tarea
+        //Inserto la noticia
         $this->db->beginTransaction(); //inicio transaccion
         
         // si no existe la categoria, la crea

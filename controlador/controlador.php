@@ -1,6 +1,6 @@
 <?php
 include_once 'vista/vista.php';
-include_once 'modelo/modelo.php';
+include_once 'modelo/modelobase.php';
 
 class ControllerClass{
     
