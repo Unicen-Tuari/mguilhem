@@ -26,7 +26,7 @@
           
         <div class="col-sm-12 col-md-12">
           <ul class="list-group">
-            {foreach $tareas as $noticia}
+            {foreach $noticias as $noticia}
                 <li class="list-group-item">Categoria: 
                     {$noticia['nombre']}
 

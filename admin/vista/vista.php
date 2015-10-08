@@ -12,17 +12,17 @@ class TareasView {
     }
     
     //cargar el contenedor con el home
-    function home_min($tareas){
+    function home_min($noticias){
         $this->smarty->assign('errores', $this->errores);
-        $this->smarty->assign('tareas', $tareas);
-        $this->smarty->assign('todascat', $tareas);
+        $this->smarty->assign('noticias', $noticias);
+        $this->smarty->assign('todascat', $noticias);
         $this->smarty->display('home.tpl');
     }
     
     //cuando se filtra por categoria
-    function dropdown($tareas,$todascat){
+    function dropdown($noticias,$todascat){
         $this->smarty->assign('errores', $this->errores);
-        $this->smarty->assign('tareas', $tareas);
+        $this->smarty->assign('noticias', $noticias);
         $this->smarty->assign('todascat', $todascat);
         $this->smarty->display('home.tpl');
     }
@@ -32,10 +32,10 @@ class TareasView {
     }
 
     //la primera vez q se carga la pág
-    function mostrarHome($tareas){
+    function mostrarHome($noticias){
         $this->smarty->assign('errores', $this->errores);
-        $this->smarty->assign('tareas', $tareas);
-        $this->smarty->assign('todascat', $tareas);
+        $this->smarty->assign('noticias', $noticias);
+        $this->smarty->assign('todascat', $noticias);
         $this->smarty->display('index.tpl');
     }
 
