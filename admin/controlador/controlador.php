@@ -8,8 +8,8 @@ class ControllerClass{
     private $model;
 
     function __construct(){
-        $this->model = new TareasModel();
-        $this->view  = new TareasView();
+        $this->model = new NoticiasModel();
+        $this->view  = new NoticiasView();
     }
 
     public function Analizar(){
