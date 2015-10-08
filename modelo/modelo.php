@@ -19,12 +19,12 @@ class TareasModel {
     $consulta->execute(array($categoria));
     }
 //Todas las noticias
-    while($tarea = $consulta->fetch()) {
+    while($noticiaconsulta = $consulta->fetch()) {
       $consultaImagenes = $this->db->prepare("SELECT * FROM noticia where fk_id_cat=?");
-      $consultaImagenes->execute(array($tarea['id_cat']));
+      $consultaImagenes->execute(array($noticiaconsulta['id_cat']));
       $imagenes_tarea = $consultaImagenes->fetchAll();
-      $tarea['imagenes'] = $imagenes_tarea;
-      $noticias[]=$tarea;
+      $noticiaconsulta['imagenes'] = $imagenes_tarea;
+      $noticias[]=$noticiaconsulta;
     }
 
     return $noticias;
