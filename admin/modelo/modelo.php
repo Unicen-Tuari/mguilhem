@@ -8,7 +8,7 @@ class NoticiasModel {
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
-  function getTareas($categoria){
+  function getNoticias($categoria){
     $noticias = array();
     if ($categoria=="todos"){
     $consulta = $this->db->prepare("SELECT * FROM categoria");

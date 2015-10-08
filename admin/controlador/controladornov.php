@@ -10,15 +10,15 @@ function __construct($view){
 }
     
     
-  function agregarTarea(){
+  function agregarNoticia(){
     if($_REQUEST['task']!="" && $_REQUEST['titulo']!="" && ($_FILES["imagesToUpload"]["error"][0])!=4 && $_REQUEST['categoria']!=""){
-        $this->model->agregarTarea($_REQUEST['task'],$_FILES['imagesToUpload'],$_REQUEST['categoria'],$_REQUEST['titulo']);
+        $this->model->agregarNoticia($_REQUEST['task'],$_FILES['imagesToUpload'],$_REQUEST['categoria'],$_REQUEST['titulo']);
       }
     else{
         $this->vista->mostrarError('La noticia que intenta crear esta le falta información');
     }
     $categoria="todos";
-    $this->vista->mostrarHome($this->model->getTareas($categoria));
+    $this->vista->mostrarHome($this->model->getNoticias($categoria));
   }
 
   function borrarTarea(){
@@ -29,7 +29,7 @@ function __construct($view){
       $this->vista->mostrarError('La noticia que intenta borrar no existe');
     }
     $categoria="todos";
-    $this->vista->mostrarHome($this->model->getTareas($categoria));
+    $this->vista->mostrarHome($this->model->getNoticias($categoria));
   }
     
 }

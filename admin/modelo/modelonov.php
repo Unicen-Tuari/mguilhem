@@ -23,7 +23,7 @@ class NovModel {
     return $destinos_finales; //se devuelve la img con la direccion "/uploads/imagenes/" para q se guarde en el bd
   }
 
-  function getTareas($categoria){
+  function getNoticias($categoria){
     $noticias = array();
     if ($categoria=="todos"){
     $consulta = $this->db->prepare("SELECT * FROM categoria");
@@ -46,7 +46,7 @@ class NovModel {
   }
 
 
-function agregarTarea($tarea, $imagenes,$categoria,$titulo){
+function agregarNoticia($tarea, $imagenes,$categoria,$titulo){
     try{
         $destinos_finales=$this->subirImagenes($imagenes);
         

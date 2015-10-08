@@ -45,7 +45,7 @@
         
       <div class="row">
         <div class="col-md-6">
-          <form action="index.php?action=agregar_tarea" method="POST" enctype="multipart/form-data">
+          <form action="index.php?action=agregar_noticia" method="POST" enctype="multipart/form-data">
             <!-- html -->
             <div class="form-group">
                 <label for="categoria">Categoria</label>

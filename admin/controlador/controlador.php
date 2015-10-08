@@ -17,7 +17,7 @@ class ControllerClass{
 $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
     {
     $categoria="todos";
-    $this->view->mostrarHome($this->model->getTareas($categoria));
+    $this->view->mostrarHome($this->model->getNoticias($categoria));
     }
     else {
         switch ($_REQUEST[ConfigApp::$ACTION]) 
@@ -25,16 +25,16 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
             case ConfigApp::$ACTION_HOME:
                 $controller = new ControllerClass();
                 $categoria='todos';
-                $this->view->home_min($this->model->getTareas($categoria));
+                $this->view->home_min($this->model->getNoticias($categoria));
                 break;
             case ConfigApp::$ACTION_DROPDOWN:
                 $controller = new ControllerClass();
                 $categoria=$_REQUEST['dropdown'];
-                $this->view->dropdown($this->model->getTareas($categoria),$this->model->getTareas('todos'));
+                $this->view->dropdown($this->model->getNoticias($categoria),$this->model->getNoticias('todos'));
                 break;
-            case ConfigApp::$ACTION_AGREGAR_TAREA:
+            case ConfigApp::$ACTION_AGREGAR_NOTICIA:
                 $controller = new controladornov($this->view);
-                $controller->agregarTarea();
+                $controller->agregarNoticia();
                 break;
             case ConfigApp::$ACTION_BORRAR_TAREA:
                 $controller = new controladornov($this->view);
