@@ -1,7 +1,7 @@
 <?php
 require ('libs/Smarty.class.php');
 
-class TareasView {
+class NoticiasView {
     
     private $smarty;
     private $errores;
