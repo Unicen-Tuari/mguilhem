@@ -36,9 +36,9 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
                 $controller = new controladornov($this->view);
                 $controller->agregarNoticia();
                 break;
-            case ConfigApp::$ACTION_BORRAR_TAREA:
+            case ConfigApp::$ACTION_BORRAR_NOTICIA:
                 $controller = new controladornov($this->view);
-                $controller->borrarTarea();
+                $controller->borrarNoticia();
                 break;
             default:
                 echo 'Pagina no encontrada';

@@ -31,7 +31,7 @@
                     {$noticia['nombre']}
 
                     {foreach $noticia['imagenes'] as $imagen}
-                        <h2>{$imagen["titulo"]} <a class="glyphicon glyphicon-trash" href="index.php?action=borrar_tarea&id_task={$imagen['id']}"></a></h2>
+                        <h2>{$imagen["titulo"]} <a class="glyphicon glyphicon-trash" href="index.php?action=borrar_noticia&id_task={$imagen['id']}"></a></h2>
                     
                         <br/><img src="../{$imagen['path']}" alt="imagen-{$imagen['id']}-tarea-{$noticia['id']}" class="img-thumbnail" /><br/>
                         {$imagen["descripcion"]}    

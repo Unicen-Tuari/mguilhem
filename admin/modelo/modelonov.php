@@ -79,7 +79,7 @@ function agregarNoticia($tarea, $imagenes,$categoria,$titulo){
     }
 }
 
-  function borrarTarea($id_tarea){
+  function borrarNoticia($id_tarea){
     //guarda categoria
     
     $consulta= $this->db->prepare('SELECT fk_id_cat FROM noticia WHERE id=?');
