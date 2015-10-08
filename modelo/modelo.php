@@ -22,8 +22,8 @@ class TareasModel {
     while($noticiaconsulta = $consulta->fetch()) {
       $consultaImagenes = $this->db->prepare("SELECT * FROM noticia where fk_id_cat=?");
       $consultaImagenes->execute(array($noticiaconsulta['id_cat']));
-      $imagenes_tarea = $consultaImagenes->fetchAll();
-      $noticiaconsulta['imagenes'] = $imagenes_tarea;
+      $imagenes_noticia = $consultaImagenes->fetchAll();
+      $noticiaconsulta['imagenes'] = $imagenes_noticia;
       $noticias[]=$noticiaconsulta;
     }
 
