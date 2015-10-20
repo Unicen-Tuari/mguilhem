@@ -21,12 +21,13 @@
                     {/foreach}
             {/foreach} -->
             <!--<p>{$noticia["descripcion"]}</p>-->
+              
               {foreach $cabeceras as $cabecera}
               {if (isset($cabecera['id']))}
               <li class="noticia col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4">
                 <p class="noticia">Categoria: {$cabeceras[$cabecera['id']]['nombre']}</p>
                 <a class="miniatura">
-                  <img onclick="mostrarNoticia({$cabecera['id']})" class="img-rounded col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4" alt="" src="{$cabecera['path']}"/><span>{$cabecera["titulo"]}</span>
+                  <img onclick="mostrarNoticia({$cabecera['id']},'mostrar_noticia','{$cabeceras[$cabecera['id']]['nombre']}')" class="img-rounded col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4" alt="" src="{$cabecera['path']}"/><span>{$cabecera["titulo"]}</span>
                 </a>
               </li>
               {/if}
@@ -34,6 +35,9 @@
               
               
             </ul>
+        </div>
+        <div class="col-sm-12 col-md-12" id="contenedornoticia">
+
         </div>
     </div>
 

@@ -30,6 +30,12 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
                 $controller = new ControllerClass();
                 $this->view->ejercicios();
                 break;
+            case ConfigApp::$ACTION_MOSTRAR_NOTICIA:
+                $controller = new ControllerClass();
+                $id=$_REQUEST['id'];
+                $categoria=$_REQUEST['categoria'];
+                $this->view->home_con_noticia($this->model->getNoticiaCompleta($id),$categoria);
+                break;
             case ConfigApp::$ACTION_HOME:
                 $controller = new ControllerClass();
                 $categoria='todos';

@@ -28,6 +28,21 @@ $.ajax({
 })
 };
 
+function mostrarNoticia(id,web,categoria){
+$.ajax({
+    type:       "GET",
+    dataType:   "html",
+    url:        "index.php",
+    data: {action: web,id : id,categoria:categoria},
+    success: function(data){
+      $("#contenedornoticia").html(data);
+    },
+    error: function(){
+      alert("Error al Cargar la Noticia");
+    }
+})
+};
+
 function getInformationByGroup(grupo){
   $.ajax({
      type: "GET",

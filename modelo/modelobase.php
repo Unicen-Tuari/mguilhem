@@ -45,6 +45,13 @@ class NoticiasModel {
     return $cabeceras;
   }
   
+  function getNoticiaCompleta($id){
+    $consulta = $this->db->prepare("SELECT * FROM noticia where id=?");
+    $consulta->execute(array($id));
+    $noticiacompleta = $consulta->fetch();
+    return $noticiacompleta;
+  }
+  
   
 
 }

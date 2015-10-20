@@ -27,6 +27,12 @@ class NoticiasView {
         $this->smarty->assign('cabeceras', $cabeceras);
         $this->smarty->display('home.tpl');
     }
+  
+    function home_con_noticia($noticiacompleta,$categoria){
+      $this->smarty->assign('noticiacompleta', $noticiacompleta);
+      $this->smarty->assign('categoria', $categoria);
+      $this->smarty->display('noticia.tpl');
+    }
     
     function mostrarError($error){
       array_push($this->errores, $error);
