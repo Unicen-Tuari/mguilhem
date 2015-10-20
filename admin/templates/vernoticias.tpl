@@ -27,7 +27,7 @@
             <div class="col-sm-12 col-md-12">
               <ul class="list-group">
                 {foreach $noticias as $categoria}
-                    <li class="list-group-item">Categoria: {$categoria['nombre']}
+                    <li class="list-group-item"><h3>Categoria: {$categoria['nombre']}</h3>
                         {if ($categoria['imagenes'])}
                           {foreach $categoria['imagenes'] as $noticia}
 

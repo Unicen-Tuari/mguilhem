@@ -62,10 +62,22 @@ function cargarid($nombre){
 	$("#form-noticia").on("submit", function(event){
         event.preventDefault();
         
-        if ($("#imageToUpload").val() == ''){
-        	alert('Seleccione Imagen');
+        if ($("#imagesToUpload").val() ==''){
+        	alert('Seleccione imagen');
         	return;
-        }        
+        }
+        if ($("#idcategoria").val() ==''){
+        	alert('Seleccione Categoria');
+        	return;
+        }
+        if ($("#titulo").val() ==''){
+        	alert('Escriba un título');
+        	return;
+        }
+        if ($("#task").val() ==''){
+        	alert('escriba un texto en la noticia');
+        	return;
+        }
         else{
 	        $.ajax({
 	          type: "POST",

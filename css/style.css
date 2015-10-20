@@ -95,6 +95,10 @@ iframe.youtube{
 
 }
 
+.invisible{
+    display: none;
+}
+
 /* <NAVIGATION>  */
 a.page-scroll, .pointer{
 	cursor:pointer;
