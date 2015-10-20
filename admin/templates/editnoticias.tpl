@@ -18,8 +18,8 @@
             </div>
             
               <div class="form-group">
-                <label for="task">Texto</label>
-                <input type="text" class="form-control" id="task" name="task" placeholder="Descripcion">
+                <label for="descripcion">Texto</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
             </div>
               
             <div class="form-group">

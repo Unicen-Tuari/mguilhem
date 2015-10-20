@@ -11,8 +11,8 @@ function __construct($view){
     
     
   function agregarNoticia(){
-    if($_REQUEST['task']!="" && $_REQUEST['titulo']!="" && ($_FILES["imagesToUpload"]["error"][0])!=4 && $_REQUEST['categoria']!=""){
-        $this->model->agregarNoticia($_REQUEST['task'],$_FILES['imagesToUpload'],$_REQUEST['categoria'],$_REQUEST['titulo']);
+    if($_REQUEST['descripcion']!="" && $_REQUEST['titulo']!="" && ($_FILES["imagesToUpload"]["error"][0])!=4 && $_REQUEST['categoria']!=""){
+        $this->model->agregarNoticia($_REQUEST['descripcion'],$_FILES['imagesToUpload'],$_REQUEST['categoria'],$_REQUEST['titulo']);
       }
     else{
         $this->vista->mostrarError('La noticia que intenta crear esta le falta información');

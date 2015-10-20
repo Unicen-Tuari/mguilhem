@@ -46,7 +46,7 @@ class NovModel {
   }
 
 
-function agregarNoticia($tarea, $imagenes,$categoria,$titulo){
+function agregarNoticia($descripcion, $imagenes,$categoria,$titulo){
     try{
         $destinos_finales=$this->subirImagenes($imagenes);
         
@@ -61,16 +61,16 @@ function agregarNoticia($tarea, $imagenes,$categoria,$titulo){
         if ($id == null){
             $consulta = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
             $consulta->execute(array($categoria));
-            $id_tarea = $this->db->lastInsertId();
+            $id_noticia = $this->db->lastInsertId();
             }
         else{
-            $id_tarea = $id['id_cat'];
+            $id_noticia = $id['id_cat'];
         }
 
         //Insertar las imagenes
         foreach ($destinos_finales as $key => $value) {
             $consulta = $this->db->prepare('INSERT INTO noticia(fk_id_cat,path,descripcion,titulo) VALUES(?,?,?,?)');
-            $consulta->execute(array($id_tarea, $value,$tarea,$titulo));
+            $consulta->execute(array($id_noticia, $value,$descripcion,$titulo));
         }
         $this->db->commit(); //todo ok, subo transaccion
     }
@@ -79,18 +79,18 @@ function agregarNoticia($tarea, $imagenes,$categoria,$titulo){
     }
 }
 
-  function borrarNoticia($id_tarea){
+  function borrarNoticia($id_noticia){
     // COMENTE LA PARTE DE SI LA CATEGORIA ESTABA SIN NOTICIAS, SE BORRABA LA CATEGORIA
     
     //guarda categoria
     
     //$consulta= $this->db->prepare('SELECT fk_id_cat FROM noticia WHERE id=?');
-    //$consulta->execute(array($id_tarea));
+    //$consulta->execute(array($id_noticia));
     //$categoria= $consulta->fetch();
     
     //borra noticia
     $consulta = $this->db->prepare('DELETE FROM noticia WHERE id=?');
-    $consulta->execute(array($id_tarea));
+    $consulta->execute(array($id_noticia));
     
     //pregunta si categoria tiene noticias
     //$consulta = $this->db->prepare('SELECT * FROM noticia WHERE fk_id_cat=?');

@@ -33,7 +33,7 @@
 
                             <h2>{$noticia["titulo"]} <a class="glyphicon glyphicon-trash pointer" onclick="borrarnoticia('{$noticia['id']}','borrar_noticia')"></a></h2>
 
-                            <br/><img src="../{$noticia['path']}" alt="imagen-{$noticia['id']}-tarea-{$categoria['id']}" class="img-thumbnail" /><br/>
+                            <br/><img src="../{$noticia['path']}" alt="imagen-{$noticia['id']}-noticia-{$categoria['id']}" class="img-thumbnail" /><br/>
                             {$noticia["descripcion"]}
 
                           {/foreach}
