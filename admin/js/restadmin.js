@@ -42,7 +42,7 @@ $.ajax({
     url:        "index.php",
     data: {action: web,id_task : id_task},
     success: function(data){
-        cargarnoticias('todos','home_min')
+        cargarnoticias('todos','home_min'); //en vez de recargar toda la pag, solamente volver a cargar el contenedor con todas las noticias
     },
     error: function(){
         alert("Error");
@@ -51,10 +51,10 @@ $.ajax({
 };
 
 /* guarda la CATEGORIA seleccionada en el dropdown */
-function cargarid($id,$nombre){
+function cargarid($nombre){
   $('#dropdownMenu2').html($nombre+" <span class='caret'></span>");
   var texto = document.getElementById("idcategoria");
-  texto.value = $id;
+  texto.value = $nombre;
 }
 
   //SUBMIT NOTICIA
@@ -72,7 +72,7 @@ function cargarid($id,$nombre){
 	          url: event.target.action,
 	          data: new FormData(this),
 	          success: function(data){
-	            cargarweb('home_min');
+	            cargarweb('home_min'); //en vez de recargar toda la pag, solamente volver a cargar el contenedor con todas las noticias
 	          },
 	          error: function(){
 	            alert("Error al Enviar el proceso");
@@ -84,12 +84,12 @@ function cargarid($id,$nombre){
 	});
 
   //SUBMIT CATEGORIA
-  /*
+  
 	$("#form-categoria").on("submit", function(event){
         event.preventDefault();
         
-        if ($("#imageToUpload").val() == ''){
-        	alert('Seleccione Imagen');
+        if ($("#newcategoria").val() == ''){
+        	alert('Poner el Nombre de la Categoría');
         	return;
         }        
         else{
@@ -99,15 +99,15 @@ function cargarid($id,$nombre){
 	          url: event.target.action,
 	          data: new FormData(this),
 	          success: function(data){
-	            $('#huecoreply').html(data);
+                //alert('se subio la categoria con exito');
 	          },
 	          error: function(){
-	            alert("Error al Enviar el proceso");
+	            alert("Error al crear categoria");
 	          },
 	          contentType : false,
 	          processData : false
 	        });
         }
 	});
-    */
+    
 

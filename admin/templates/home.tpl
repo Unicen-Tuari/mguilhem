@@ -26,16 +26,19 @@
           
         <div class="col-sm-12 col-md-12">
           <ul class="list-group">
-            {foreach $noticias as $noticia}
-                <li class="list-group-item">Categoria: 
-                    {$noticia['nombre']}
-
-                    {foreach $noticia['imagenes'] as $imagen}
-                        <h2>{$imagen["titulo"]} <a class="glyphicon glyphicon-trash" onclick="borrarnoticia('{$imagen['id']}','borrar_noticia')"></a></h2>
+            {foreach $noticias as $categoria}
+                <li class="list-group-item">Categoria: {$categoria['nombre']}
+                    {if ($categoria['imagenes'])}
+                      {foreach $categoria['imagenes'] as $noticia}
+                        
+                        <h2>{$noticia["titulo"]} <a class="glyphicon glyphicon-trash" onclick="borrarnoticia('{$noticia['id']}','borrar_noticia')"></a></h2>
                     
-                        <br/><img src="../{$imagen['path']}" alt="imagen-{$imagen['id']}-tarea-{$noticia['id']}" class="img-thumbnail" /><br/>
-                        {$imagen["descripcion"]}
-                    {/foreach}
+                        <br/><img src="../{$noticia['path']}" alt="imagen-{$noticia['id']}-tarea-{$categoria['id']}" class="img-thumbnail" /><br/>
+                        {$noticia["descripcion"]}
+                        
+                      {/foreach}
+                    {else}<p>Categoría Vacía</p>
+                    {/if}
             {/foreach}
           </ul>
             
@@ -44,7 +47,7 @@
         
          <!-- AGREGAR NOTICIA -->
         
-      <div class="row">
+      
         <div class="col-md-6">
           <form action="index.php?action=agregar_noticia" method="POST" enctype="multipart/form-data" id="form-noticia">
             <!-- html -->
@@ -89,7 +92,15 @@
             <button type="submit" class="btn btn-default cargarcategoria">Agregar</button>
           </form>
         </div>
-      </div>
+        <div class="col-md-6">
+          <form action="index.php?action=agregar_categoria" method="POST" enctype="multipart/form-data" id="form-categoria">
+            <div class="form-group">
+                <label for="titulo">Crear Categoria</label>
+                <input type="text" class="form-control" id="newcategoria" name="newcategoria" placeholder="Nombre de Nueva Categoria">
+            </div>
+            <button type="submit" class="btn btn-default">Agregar</button>
+          </form>
+        </div>
     </div>
     
     <!-- /AGREGAR NOTICIA -->

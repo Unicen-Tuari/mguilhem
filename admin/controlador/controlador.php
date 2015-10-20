@@ -40,6 +40,10 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
                 $controller = new controladornov($this->view);
                 $controller->borrarNoticia();
                 break;
+            case ConfigApp::$ACTION_AGREGAR_CATEGORIA:
+                $controller = new controladorcat($this->view);
+                $controller->agregarCategoria();
+                break;
             default:
                 echo 'Pagina no encontrada';
                 break;
