@@ -22,9 +22,9 @@ class NoticiasView {
     }
     
     //ir pag home (con novedades)
-    function home_min($noticias){
+    function home_min($cabeceras){
         $this->smarty->assign('errores', $this->errores);
-        $this->smarty->assign('noticias', $noticias);
+        $this->smarty->assign('cabeceras', $cabeceras);
         $this->smarty->display('home.tpl');
     }
     
@@ -33,9 +33,9 @@ class NoticiasView {
     }
 
     //la primera vez q se carga la pág
-    function mostrarHome($noticias){
+    function mostrarHome($cabeceras){
         $this->smarty->assign('errores', $this->errores);
-        $this->smarty->assign('noticias', $noticias);
+        $this->smarty->assign('cabeceras', $cabeceras);
         $this->smarty->display('index.tpl');
     }
 

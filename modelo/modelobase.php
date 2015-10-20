@@ -29,6 +29,23 @@ class NoticiasModel {
 
     return $noticias;
   }
+  
+  function getCabeceraNoticias(){
+    $consulta = $this->db->prepare("SELECT titulo,id,path,fk_id_cat FROM noticia");
+    $consulta->execute();
+    while($noticiaconsulta = $consulta->fetch()){
+      $cabeceras[]=$noticiaconsulta;
+    }
+    
+    foreach ($cabeceras as $cab){
+    $consultacat = $this->db->prepare("SELECT nombre FROM categoria where id_cat=?");
+    $consultacat->execute(array($cab['fk_id_cat']));
+    $cabeceras[$cab['id']]=$consultacat->fetch();
+    }
+    return $cabeceras;
+  }
+  
+  
 
 }
 ?>

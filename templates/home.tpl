@@ -3,21 +3,36 @@
     <div class="novedades col-lg-12">
         
     <!-- NOTICIAS FEATURE -->
+      
+      
         <h1 class="novedades">Novedades</h1>
         <div class="container noticia col-lg-12">  
             <ul>
+              <!--
             {foreach $noticias as $categoria}
                     {foreach $categoria['imagenes'] as $noticia}
                         <li class="noticia col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4">
-                        <p class="noticia">Categoria: {$categoria['nombre']}</p>
-                        <a class="miniatura">
-                        <img data-toggle="modal" data-target="#myModal" onclick="llamarmodel('{$categoria['nombre']}','{$noticia['titulo']}','{$noticia['path']}','{$noticia['descripcion']}')" class="img-rounded col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4" alt="" src="{$noticia['path']}"/>
-                        <span>{$noticia["titulo"]}</span>
-                        </a>
+                          <p class="noticia">Categoria: {$categoria['nombre']}</p>
+                          <a class="miniatura">
+                            <img data-toggle="modal" data-target="#myModal" onclick="llamarmodel('{$categoria['nombre']}','{$noticia['titulo']}','{$noticia['path']}','{$noticia['descripcion']}')" class="img-rounded col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4" alt="" src="{$noticia['path']}"/>
+                            <span>{$noticia["titulo"]}</span>
+                          </a>
                         </li>
-                        <!--<p>{$noticia["descripcion"]}</p>-->
                     {/foreach}
-            {/foreach}
+            {/foreach} -->
+            <!--<p>{$noticia["descripcion"]}</p>-->
+              {foreach $cabeceras as $cabecera}
+              {if (isset($cabecera['id']))}
+              <li class="noticia col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4">
+                <p class="noticia">Categoria: {$cabeceras[$cabecera['id']]['nombre']}</p>
+                <a class="miniatura">
+                  <img onclick="mostrarNoticia({$cabecera['id']})" class="img-rounded col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-8 col-md-6 col-lg-4" alt="" src="{$cabecera['path']}"/><span>{$cabecera["titulo"]}</span>
+                </a>
+              </li>
+              {/if}
+              {/foreach}
+              
+              
             </ul>
         </div>
     </div>
