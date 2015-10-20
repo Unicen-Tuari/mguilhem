@@ -29,7 +29,7 @@ function __construct($view){
       $this->vista->mostrarError('La noticia que intenta borrar no existe');
     }
     $categoria="todos";
-    $this->vista->mostrarHome($this->model->getNoticias($categoria));
+    //$this->vista->mostrarHome($this->model->getNoticias($categoria));
   }
     
 }

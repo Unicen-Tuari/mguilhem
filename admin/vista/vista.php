@@ -16,7 +16,7 @@ class NoticiasView {
         $this->smarty->assign('errores', $this->errores);
         $this->smarty->assign('noticias', $noticias);
         $this->smarty->assign('todascat', $noticias);
-        $this->smarty->display('home.tpl');
+        $this->smarty->display('vernoticias.tpl');
     }
     
     //cuando se filtra por categoria

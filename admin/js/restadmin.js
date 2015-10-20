@@ -13,6 +13,7 @@ $.ajax({
 })
 };
 
+/*
 function cargarnoticias(categoria,web){
 $.ajax({
     type:       "POST",
@@ -27,8 +28,8 @@ $.ajax({
     }
   })
 };
+*/
 
-/* guarda la CATEGORIA seleccionada en el dropdown */
 function cargarid($nombre){
   $('#dropdownMenu2').html($nombre+"<span class='caret'></span>");
   var texto = document.getElementById("idcategoria");
@@ -42,7 +43,7 @@ $.ajax({
     url:        "index.php",
     data: {action: web,id_task : id_task},
     success: function(data){
-        cargarnoticias('todos','home_min'); //en vez de recargar toda la pag, solamente volver a cargar el contenedor con todas las noticias
+        cargarweb('home_min');
     },
     error: function(){
         alert("Error");
@@ -72,7 +73,7 @@ function cargarid($nombre){
 	          url: event.target.action,
 	          data: new FormData(this),
 	          success: function(data){
-	            cargarweb('home_min'); //en vez de recargar toda la pag, solamente volver a cargar el contenedor con todas las noticias
+	            cargarweb('home_min');
 	          },
 	          error: function(){
 	            alert("Error al Enviar el proceso");
@@ -99,7 +100,7 @@ function cargarid($nombre){
 	          url: event.target.action,
 	          data: new FormData(this),
 	          success: function(data){
-                //alert('se subio la categoria con exito');
+                cargarweb('home_min');
 	          },
 	          error: function(){
 	            alert("Error al crear categoria");

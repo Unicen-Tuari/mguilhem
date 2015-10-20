@@ -1,6 +1,8 @@
 <div class="novedades col-lg-12">
     
+
         <!-- NOVEDADES FEATURE ADMIN -->
+    <!--
         <div class="col-xs-4 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-2">
             <div class="dropdown">
                 
@@ -15,8 +17,8 @@
                 </ul>
             </div>
         </div>
-
-        <div class="col-sm-8 col-md-7 ">
+-->
+        <div class="col-sm-12 col-md-12 text-center">
             <h1>Novedades</h1>
         </div>
 
@@ -29,7 +31,7 @@
                         {if ($categoria['imagenes'])}
                           {foreach $categoria['imagenes'] as $noticia}
 
-                            <h2>{$noticia["titulo"]} <a class="glyphicon glyphicon-trash" onclick="borrarnoticia('{$noticia['id']}','borrar_noticia')"></a></h2>
+                            <h2>{$noticia["titulo"]} <a class="glyphicon glyphicon-trash pointer" onclick="borrarnoticia('{$noticia['id']}','borrar_noticia')"></a></h2>
 
                             <br/><img src="../{$noticia['path']}" alt="imagen-{$noticia['id']}-tarea-{$categoria['id']}" class="img-thumbnail" /><br/>
                             {$noticia["descripcion"]}
@@ -42,9 +44,9 @@
             
             </div>
           </div>
-        
+        </div>
+    </div>
          
 
     
-  
 

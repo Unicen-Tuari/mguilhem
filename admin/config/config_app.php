@@ -8,6 +8,6 @@ class ConfigApp {
   public static $ACTION_AGREGAR_CATEGORIA = 'agregar_categoria';
   public static $ACTION_BORRAR_NOTICIA = 'borrar_noticia';
   public static $ACTION_HOME = 'home_min';
-  public static $ACTION_DROPDOWN = 'dropdown';
+  //public static $ACTION_DROPDOWN = 'dropdown';
 }
  ?>

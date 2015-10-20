@@ -27,11 +27,11 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
                 $categoria='todos';
                 $this->view->home_min($this->model->getNoticias($categoria));
                 break;
-            case ConfigApp::$ACTION_DROPDOWN:
+            /*case ConfigApp::$ACTION_DROPDOWN:
                 $controller = new ControllerClass();
                 $categoria=$_REQUEST['dropdown'];
                 $this->view->dropdown($this->model->getNoticias($categoria),$this->model->getNoticias('todos'));
-                break;
+                break;*/
             case ConfigApp::$ACTION_AGREGAR_NOTICIA:
                 $controller = new controladornov($this->view);
                 $controller->agregarNoticia();
@@ -39,10 +39,12 @@ $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
             case ConfigApp::$ACTION_BORRAR_NOTICIA:
                 $controller = new controladornov($this->view);
                 $controller->borrarNoticia();
+                $this->view->home_min($this->model->getNoticias('todos'));
                 break;
             case ConfigApp::$ACTION_AGREGAR_CATEGORIA:
                 $controller = new controladorcat($this->view);
                 $controller->agregarCategoria();
+                $this->view->home_min($this->model->getNoticias('todos'));
                 break;
             default:
                 echo 'Pagina no encontrada';

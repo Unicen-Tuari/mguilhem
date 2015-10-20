@@ -96,7 +96,7 @@ iframe.youtube{
 }
 
 /* <NAVIGATION>  */
-a.page-scroll{
+a.page-scroll, .pointer{
 	cursor:pointer;
 }
 .navbar-default {

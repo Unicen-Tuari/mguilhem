@@ -1,6 +1,3 @@
-<!-- /CONTENEDOR WEB AJAX -->
-</div>    
-
     <!-- jQuery  -->
     <script src="../js/jquery.js"></script>
     <!-- SE CARGA ANTES QUE EL JS DE BOOTSTRAP!!!-->

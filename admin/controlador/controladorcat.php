@@ -18,7 +18,7 @@ function __construct($view){
         $this->vista->mostrarError('La categoria que intenta crear esta le falta información');
     }
     $categoria="todos";
-    $this->vista->mostrarHome($this->model->getNoticias($categoria));
+    //$this->vista->mostrarHome($this->model->getNoticias($categoria));
   }
 }
 ?>

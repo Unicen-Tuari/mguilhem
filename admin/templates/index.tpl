@@ -2,8 +2,6 @@
 
 {include file="vernoticias.tpl" title=cont}
 
-{include file="subirnoticia.tpl" title=cont}
-
-{include file="subircategoria.tpl" title=cont}
+{include file="editnoticias.tpl" title=adminnoti}
 
 {include file="footer.tpl" title=foo}
