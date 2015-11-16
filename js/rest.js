@@ -1,78 +1,78 @@
-function cargarweb(web){
-$.ajax({
-    type:       "GET",
-    dataType:   "html",
-    url:        "index.php",
-    data: {action: web},
-    success: function(data){
-        $("#contenedorweb").html(data);
-    },
-    error: function(){
-        alert("Error al Cargar la Pagina de " + web);
-    }
-})
-};
-
-function cargarnoticias(categoria,web){
-$.ajax({
-    type:       "GET",
-    dataType:   "html",
-    url:        "index.php",
-    data: {action: web,dropdown : categoria},
-    success: function(data){
-        $("#contenedorweb").html(data);
-    },
-    error: function(){
-        alert("Error al Cargar la Pagina de " + web);
-    }
-})
-};
-
-function mostrarNoticia(id,web,categoria){
-$.ajax({
-    type:       "GET",
-    dataType:   "html",
-    url:        "index.php",
-    data: {action: web,id : id,categoria:categoria},
-    success: function(data){
-      $("#contenedornoticia").html(data);
-    },
-    error: function(){
-      alert("Error al Cargar la Noticia");
-    }
-})
-};
-
-function getInformationByGroup(grupo){
+//$(document).ready(function(){
+  function cargarweb(web){
   $.ajax({
-     type: "GET",
-     dataType: 'JSON',
-     url: "http://web-unicen.herokuapp.com/api/group/" + grupo,
-     success: function(data){
-         
-         var html       = "";
-         var alimento   = "";
-         var calorias   = "";
-         var proteinas  = "";
-         var lipidos    = "";
-         var hcarbono   = "";
-         
-         for (var i = 0; i < data.information.length;i++) 
-         {
-             alimento = data.information[i]['thing'][0];
-             calorias = data.information[i]['thing'][1];
-			 proteinas = data.information[i]['thing'][2];
-			 lipidos = data.information[i]['thing'][3];
-			 hcarbono = data.information[i]['thing'][4];
-             html += "<tr><th>" + alimento + "</th><th>" + calorias + "</th><th>" + proteinas + "</th><th>" + lipidos + "</th><th>" + hcarbono + "</th></tr>";
-         }
-       $("#infoGroup").html(html);
-     }
+      type:       "GET",
+      dataType:   "html",
+      url:        "index.php",
+      data: {action: web},
+      success: function(data){
+          $("#contenedorweb").html(data);
+      },
+      error: function(){
+          alert("Error al Cargar la Pagina de " + web);
+      }
   })
-};
+  };
 
+  function cargarnoticias(categoria,web){
+  $.ajax({
+      type:       "GET",
+      dataType:   "html",
+      url:        "index.php",
+      data: {action: web,dropdown : categoria},
+      success: function(data){
+          $("#contenedorweb").html(data);
+      },
+      error: function(){
+          alert("Error al Cargar la Pagina de " + web);
+      }
+  })
+  };
 
-function guardarInformacion(){
+  function mostrarNoticia(id,web,categoria){
+  $.ajax({
+      type:       "GET",
+      dataType:   "html",
+      url:        "index.php",
+      data: {action: web,id : id,categoria:categoria},
+      success: function(data){
+        $("#contenedornoticia").html(data);
+      },
+      error: function(){
+        alert("Error al Cargar la Noticia");
+      }
+  })
+  };
+
+  function getInformationByGroup(grupo){
+    $.ajax({
+       type: "GET",
+       dataType: 'JSON',
+       url: "http://web-unicen.herokuapp.com/api/group/" + grupo,
+       success: function(data){
+
+           var html       = "";
+           var alimento   = "";
+           var calorias   = "";
+           var proteinas  = "";
+           var lipidos    = "";
+           var hcarbono   = "";
+
+           for (var i = 0; i < data.information.length;i++) 
+           {
+               alimento = data.information[i]['thing'][0];
+               calorias = data.information[i]['thing'][1];
+               proteinas = data.information[i]['thing'][2];
+               lipidos = data.information[i]['thing'][3];
+               hcarbono = data.information[i]['thing'][4];
+               html += "<tr><th>" + alimento + "</th><th>" + calorias + "</th><th>" + proteinas + "</th><th>" + lipidos + "</th><th>" + hcarbono + "</th></tr>";
+           }
+         $("#infoGroup").html(html);
+       }
+    })
+  };
+
+  function guardarInformacion(){
     
     var alimento = $("#alimento").val();
     var calorias = $("#calorias").val();
@@ -104,3 +104,5 @@ function guardarInformacion(){
     }
     else {alert('Faltan datos');}
 }
+
+//});

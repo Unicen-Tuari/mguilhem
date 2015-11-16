@@ -1,104 +1,105 @@
-function cargarweb(web){
-$.ajax({
-    type:       "POST",
-    dataType:   "html",
-    url:        "index.php",
-    data: {action: web},
-    success: function(data){
-        $("#contenedorweb").html(data);
-    },
-    error: function(){
-        alert("Error al Cargar la Pagina de " + web);
-    }
-})
-};
 
-/*
-function cargarnoticias(categoria,web){
-$.ajax({
-    type:       "POST",
-    dataType:   "html",
-    url:        "index.php",
-    data: {action: web,dropdown : categoria},
-    success: function(data){
-        $("#contenedorweb").html(data);
-    },
-    error: function(){
-        alert("Error al Cargar la Pagina de " + web);
-    }
+  function cargarweb(web){
+  $.ajax({
+      type:       "POST",
+      dataType:   "html",
+      url:        "index.php",
+      data: {action: web},
+      success: function(data){
+          $("#contenedorweb").html(data);
+      },
+      error: function(){
+          alert("Error al Cargar la Pagina de " + web);
+      }
   })
-};
-*/
+  };
 
-function cargarid($nombre){
-  $('#dropdownMenu2').html($nombre+"<span class='caret'></span>");
-  var texto = document.getElementById("idcategoria");
-  texto.value = $nombre;
-}
+  /*
+  function cargarnoticias(categoria,web){
+  $.ajax({
+      type:       "POST",
+      dataType:   "html",
+      url:        "index.php",
+      data: {action: web,dropdown : categoria},
+      success: function(data){
+          $("#contenedorweb").html(data);
+      },
+      error: function(){
+          alert("Error al Cargar la Pagina de " + web);
+      }
+    })
+  };
+  */
 
-function borrarnoticia(id_task,web){
-$.ajax({
-    type:       "POST",
-    dataType:   "html",
-    url:        "index.php",
-    data: {action: web,id_task : id_task},
-    success: function(data){
-        cargarweb('home_min');
-    },
-    error: function(){
-        alert("Error");
-    }
-  })
-};
+  function cargarid($nombre){
+    $('#dropdownMenu2').html($nombre+"<span class='caret'></span>");
+    var texto = document.getElementById("idcategoria");
+    texto.value = $nombre;
+  }
 
-/* guarda la CATEGORIA seleccionada en el dropdown */
-function cargarid($nombre){
-  $('#dropdownMenu2').html($nombre+" <span class='caret'></span>");
-  var texto = document.getElementById("idcategoria");
-  texto.value = $nombre;
-}
+  function borrarnoticia(id_noticia,web){
+  $.ajax({
+      type:       "POST",
+      dataType:   "html",
+      url:        "index.php",
+      data: {action: web, id_noticia: id_noticia},
+      success: function(data){
+          cargarweb('home_min');
+      },
+      error: function(){
+          alert("Error");
+      }
+    })
+  };
 
+  // guarda la CATEGORIA seleccionada en el dropdown
+  function cargarid($nombre){
+    $('#dropdownMenu2').html($nombre+" <span class='caret'></span>");
+    var texto = document.getElementById("idcategoria");
+    texto.value = $nombre;
+  }
+
+$(document).ready(function(){
   //SUBMIT NOTICIA
-	$("#form-noticia").on("submit", function(event){
-        event.preventDefault();
-        
-        if ($("#imagesToUpload").val() ==''){
-        	alert('Seleccione imagen');
-        	return;
-        }
-        if ($("#idcategoria").val() ==''){
-        	alert('Seleccione Categoria');
-        	return;
-        }
-        if ($("#titulo").val() ==''){
-        	alert('Escriba un título');
-        	return;
-        }
-        if ($("#task").val() ==''){
-        	alert('escriba un texto en la noticia');
-        	return;
-        }
-        else{
-	        $.ajax({
-	          type: "POST",
-	          dataType: "HTML",
-	          url: event.target.action,
-	          data: new FormData(this),
-	          success: function(data){
-	            cargarweb('home_min');
-	          },
-	          error: function(){
-	            alert("Error al Enviar el proceso");
-	          },
-	          contentType : false,
-	          processData : false
-	        });
-        }
-	});
+  $("#form-noticia").on("submit", function(event){
+          event.preventDefault();
+
+          if ($("#imagesToUpload").val() ==''){
+              alert('Seleccione imagen');
+              return;
+          }
+          if ($("#idcategoria").val() ==''){
+              alert('Seleccione Categoria');
+              return;
+          }
+          if ($("#titulo").val() ==''){
+              alert('Escriba un título');
+              return;
+          }
+          if ($("#descripcion").val() ==''){
+              alert('escriba un texto en la noticia');
+              return;
+          }
+          else{
+              $.ajax({
+                type: "POST",
+                dataType: "HTML",
+                url: event.target.action,
+                data: new FormData(this),
+                success: function(data){
+                  cargarweb('home_min');
+                },
+                error: function(){
+                  alert("Error al Enviar el proceso");
+                },
+                contentType : false,
+                processData : false
+              });
+          }
+      });
 
   //SUBMIT CATEGORIA
-  
-	$("#form-categoria").on("submit", function(event){
+  $("#form-categoria").on("submit", function(event){
         event.preventDefault();
         
         if ($("#newcategoria").val() == ''){
@@ -122,5 +123,5 @@ function cargarid($nombre){
 	        });
         }
 	});
-    
-
+  
+});

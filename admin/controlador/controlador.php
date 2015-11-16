@@ -13,9 +13,7 @@ class ControllerClass{
     }
 
     public function Analizar(){
-    if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) ||
-$_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
-    {
+    if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) || $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT){
     $categoria="todos";
     $this->view->mostrarHome($this->model->getNoticias($categoria));
     }

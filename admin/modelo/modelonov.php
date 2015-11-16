@@ -45,8 +45,7 @@ class NovModel {
     return $noticias;
   }
 
-
-function agregarNoticia($descripcion, $imagenes,$categoria,$titulo){
+  function agregarNoticia($descripcion, $imagenes,$categoria,$titulo){
     try{
         $destinos_finales=$this->subirImagenes($imagenes);
         
@@ -103,7 +102,6 @@ function agregarNoticia($descripcion, $imagenes,$categoria,$titulo){
     //$consulta->execute(array($categoria[0]));
     //}
   }
-
 
 }
 ?>

@@ -22,8 +22,8 @@ function __construct($view){
   }
 
   function borrarNoticia(){
-    if(isset($_REQUEST['id_task'])){
-      $this->model->borrarNoticia($_REQUEST['id_task']);
+    if(isset($_REQUEST['id_noticia'])){
+      $this->model->borrarNoticia($_REQUEST['id_noticia']);
     }
     else{
       $this->vista->mostrarError('La noticia que intenta borrar no existe');
