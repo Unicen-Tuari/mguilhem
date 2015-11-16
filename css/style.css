@@ -367,6 +367,11 @@ div.contact{background-color: rgba(0,0,0,0.4);}
     background-image: url("../img/contact.png");
 }
 
+/* admin bot margin */
+.botmargin{
+  margin-bottom: 50px;
+}
+
 body {
     webkit-tap-highlight-color: #222;
 }

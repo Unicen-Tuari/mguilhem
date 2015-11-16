@@ -44,7 +44,7 @@
 </div>
          
 <!-- AGREGAR NOTICIA -->      
-        <div class="col-md-6">
+        <div class="col-md-6 botmargin">
           <form action="index.php?action=agregar_noticia" method="POST" enctype="multipart/form-data" id="form-noticia">
             <!-- html -->
             
