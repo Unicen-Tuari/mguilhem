@@ -1,6 +1,8 @@
 <?php
 include_once 'vista/vista.php';
-include_once 'modelo/modelobase.php';
+include_once 'modelo/modbase.php';//primero se carga el modelo base
+include_once 'modelo/modelouser.php';
+
 
 class ControllerClass{
     
@@ -8,14 +10,12 @@ class ControllerClass{
     private $model;
 
     function __construct(){
-        $this->model = new NoticiasModel();
-        $this->view  = new NoticiasView();
+      $this->model = new NoticiasModel();
+      $this->view  = new NoticiasView();
     }
 
     public function Analizar(){
-    if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) ||
-$_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT)
-    {
+    if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) || $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT){
     $categoria="todos";
     $this->view->mostrarHome($this->model->getCabeceraNoticias());
     }

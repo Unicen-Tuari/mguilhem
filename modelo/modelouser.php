@@ -1,13 +1,9 @@
 <?php
-class NoticiasModel {
-  private $noticias;
-  private $db;
+class NoticiasModel extends ModBase {
 
-  function __construct() {
-      $this->db = new PDO('mysql:host=localhost;dbname=novedades;charset=utf8', 'root', '');
-      $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  }
-
+  /* no hace falta, hace el construct del padre
+  function __construct() {  }
+  */
   function getNoticias($categoria){
     $noticias = array();
     if ($categoria=="todos"){
