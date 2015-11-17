@@ -15,16 +15,7 @@ class NoticiasView {
     function home_min($noticias){
         $this->smarty->assign('errores', $this->errores);
         $this->smarty->assign('noticias', $noticias);
-        $this->smarty->assign('todascat', $noticias); // verificar si se usa, creo que ya no
         $this->smarty->display('vernoticias.tpl');
-    }
-    
-    //cuando se filtra por categoria
-    function dropdown($noticias,$todascat){
-        $this->smarty->assign('errores', $this->errores);
-        $this->smarty->assign('noticias', $noticias);
-        $this->smarty->assign('todascat', $todascat);
-        $this->smarty->display('home.tpl');
     }
     
     function mostrarError($error){
@@ -35,7 +26,6 @@ class NoticiasView {
     function mostrarHome($noticias){
         $this->smarty->assign('errores', $this->errores);
         $this->smarty->assign('noticias', $noticias);
-        $this->smarty->assign('todascat', $noticias);
         $this->smarty->display('index.tpl');
     }
 

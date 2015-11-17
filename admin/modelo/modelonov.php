@@ -4,7 +4,7 @@ class NovModel extends ModBase {
   /* no hace falta, hace el construct del padre
   function __construct() {  }
   */
-
+  
   private function subirImagenes($imagenes){
     $carpeta  = "../uploads/imagenes/";
     $carpetas = "uploads/imagenes/";
