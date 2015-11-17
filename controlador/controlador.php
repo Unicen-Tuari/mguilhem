@@ -37,7 +37,6 @@ class ControllerClass{
                 break;
             case ConfigApp::$ACTION_HOME:
                 $controller = new ControllerClass();
-                $categoria='todos';
                 $this->view->home_min($this->model->getCabeceraNoticias());
                 break;
             default:

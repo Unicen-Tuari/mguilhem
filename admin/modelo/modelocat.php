@@ -1,5 +1,5 @@
 <?php
-class CatModel extends ModBase {
+class CatModel extends ModBaseAdm {
 
   /* no hace falta, hace el construct del padre
   function __construct() {  }

@@ -1,5 +1,5 @@
 <?php
-class NovModel extends ModBase {
+class NovModel extends ModBaseAdm {
 
   /* no hace falta, hace el construct del padre
   function __construct() {  }
@@ -18,28 +18,6 @@ class NovModel extends ModBase {
         move_uploaded_file($value, end($destino_server)); //se guarda la img del tmp al "../uploads/imagenes/"
     }
     return $destinos_finales; //se devuelve la img con la direccion "/uploads/imagenes/" para q se guarde en el bd
-  }
-
-  function getNoticias($categoria){
-    $noticias = array();
-    if ($categoria=="todos"){
-    $consulta = $this->db->prepare("SELECT * FROM categoria");
-    $consulta->execute();
-    }
-    else {
-    $consulta = $this->db->prepare("SELECT * FROM categoria where nombre=?");
-    $consulta->execute(array($categoria));
-    }
-//Todas las noticias
-    while($noticiaconsulta = $consulta->fetch()) {
-      $consultaImagenes = $this->db->prepare("SELECT * FROM noticia where fk_id_cat=?");
-      $consultaImagenes->execute(array($noticiaconsulta['id_cat']));
-      $imagenes_noticia = $consultaImagenes->fetchAll();
-      $noticiaconsulta['imagenes'] = $imagenes_noticia;
-      $noticias[]=$noticiaconsulta;
-    }
-
-    return $noticias;
   }
 
   function agregarNoticia($descripcion, $imagenes,$categoria,$titulo){

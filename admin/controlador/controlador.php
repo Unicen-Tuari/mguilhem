@@ -1,8 +1,10 @@
 <?php
 include_once 'vista/vista.php';
 include_once '../modelo/modbase.php';
+include_once 'modelo/modbaseadm.php';
 
-class ControllerClass{
+
+class ControllerClassAdm{
     
     private $view;
     private $model;
@@ -20,7 +22,7 @@ class ControllerClass{
           switch ($_REQUEST[ConfigApp::$ACTION]) 
               {
               case ConfigApp::$ACTION_HOME:
-                  $controller = new ControllerClass();
+                  $controller = new ControllerClassAdm();
                   $this->view->home_min($this->model->getNoticias('todos'));
                   break;
               case ConfigApp::$ACTION_AGREGAR_NOTICIA:
@@ -30,12 +32,10 @@ class ControllerClass{
               case ConfigApp::$ACTION_BORRAR_NOTICIA:
                   $controller = new controladornov($this->view);
                   $controller->borrarNoticia();
-                  $this->view->home_min($this->model->getNoticias('todos'));
                   break;
               case ConfigApp::$ACTION_AGREGAR_CATEGORIA:
                   $controller = new controladorcat($this->view);
                   $controller->agregarCategoria();
-                  $this->view->home_min($this->model->getNoticias('todos'));
                   break;
               default:
                   echo 'Pagina no encontrada';

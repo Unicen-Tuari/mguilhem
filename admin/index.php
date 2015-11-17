@@ -5,7 +5,7 @@ include_once 'controlador/controlador.php';
 include_once 'controlador/controladornov.php';
 include_once 'controlador/controladorcat.php';
 
-$routing = new ControllerClass();
+$routing = new ControllerClassAdm();
 $routing->Analizar();
 
 ?>
