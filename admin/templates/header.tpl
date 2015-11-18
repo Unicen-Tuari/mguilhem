@@ -41,7 +41,7 @@
           {/if}
         </div>
       
-    
+<span class="pull-right">Hola <strong>{$email}</strong>! <a href="index.php?action=logout">Logout</a></span>
 <!-- CONTENEDOR WEB AJAX -->
 <div id="contenedorweb">
 

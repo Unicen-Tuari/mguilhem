@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2015 at 07:16 PM
+-- Generation Time: Nov 18, 2015 at 07:15 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -29,15 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `categoria` (
   `id_cat` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Dumping data for table `categoria`
---
-
-INSERT INTO `categoria` (`id_cat`, `nombre`) VALUES
-(3, 'Dieta'),
-(4, 'Ejercicio');
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -51,7 +43,26 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `path` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `titulo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
+(1, 'glhmaxi@live.com.ar', '$2y$10$8sgSmPES1DDThWUlA.dKD.QvwO7P/snTuzDS9iZd.Kpq3zJhGy8fC');
 
 --
 -- Indexes for dumped tables
@@ -71,6 +82,12 @@ ALTER TABLE `noticia`
   ADD KEY `fk_id_cat` (`fk_id_cat`);
 
 --
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -78,12 +95,17 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --

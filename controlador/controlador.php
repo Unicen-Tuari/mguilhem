@@ -3,7 +3,6 @@ include_once 'vista/vista.php';
 include_once 'modelo/modbase.php';//primero se carga el modelo base
 include_once 'modelo/modelouser.php';
 
-
 class ControllerClass{
     
     private $view;

@@ -28,6 +28,7 @@ class NoticiasView {
         $this->smarty->display('home.tpl');
     }
   
+    //mostrar una noticia seleccionada
     function home_con_noticia($noticiacompleta,$categoria){
       $this->smarty->assign('noticiacompleta', $noticiacompleta);
       $this->smarty->assign('categoria', $categoria);

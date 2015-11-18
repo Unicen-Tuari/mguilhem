@@ -1,13 +1,12 @@
 <?php
 include_once 'modelo/modelocat.php';
 
-class controladorcat{
-    private $vista;
-    private $model;
+class controladorcat extends CheckSesionController{
 
-  function __construct($view){
-    $this->vista = $view;
+  function __construct(){
+    $this->vista = new NoticiasView();
     $this->model = new CatModel();
+    $this->checkSesion();
   }
   
   function agregarCategoria(){
