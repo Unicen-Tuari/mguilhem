@@ -74,4 +74,5 @@
         </div>
 <!-- /AGREGAR NOTICIA -->
     
+<script src="js/listener.js"></script>
 
