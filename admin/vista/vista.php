@@ -1,5 +1,5 @@
 <?php
-include_once 'vista/vistabase.php';
+include_once '../vista/vistabase.php';
 
 class NoticiasView extends VistaBase{
     

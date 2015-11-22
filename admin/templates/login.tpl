@@ -11,7 +11,7 @@
     <link href="css/login.css" rel="stylesheet">
   </head>
   
-  <body>
+  <body class="admin">
     <div class="container">
       <form class="form-signin" method="POST" action="index.php?action=login">
         <h2 class="form-signin-heading">Acceso</h2>

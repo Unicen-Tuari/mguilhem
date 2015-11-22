@@ -13,35 +13,35 @@ if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) || $_REQUEST[ConfigApp::$ACT
   $controller = new controladornov();
   $controller->mostrarHome();
 }
-    else {
-      switch ($_REQUEST[ConfigApp::$ACTION]) {
-        case ConfigApp::$ACTION_HOME:
-          $controller = new controladornov();
-          $controller->mostrarHomeMin();
-          break;
-        case ConfigApp::$ACTION_AGREGAR_NOTICIA:
-          $controller = new controladornov();
-          $controller->agregarNoticia();
-          break;
-        case ConfigApp::$ACTION_BORRAR_NOTICIA:
-          $controller = new controladornov();
-          $controller->borrarNoticia();
-          break;
-        case ConfigApp::$ACTION_AGREGAR_CATEGORIA:
-          $controller = new controladorcat();
-          $controller->agregarCategoria();
-          break;
-        case ConfigApp::$ACTION_LOGIN:
-          $controller = new LoginController();
-          $controller->login();
-          break;
-        case ConfigApp::$ACTION_LOGOUT:
-          $controller = new LoginController();
-          $controller->logout();
-          break;
-        default:
-          echo 'Pagina no encontrada';
-          break;
-        }
-      }   
+else {
+  switch ($_REQUEST[ConfigApp::$ACTION]) {
+    case ConfigApp::$ACTION_HOME:
+      $controller = new controladornov();
+      $controller->mostrarHomeMin();
+      break;
+    case ConfigApp::$ACTION_AGREGAR_NOTICIA:
+      $controller = new controladornov();
+      $controller->agregarNoticia();
+      break;
+    case ConfigApp::$ACTION_BORRAR_NOTICIA:
+      $controller = new controladornov();
+      $controller->borrarNoticia();
+      break;
+    case ConfigApp::$ACTION_AGREGAR_CATEGORIA:
+      $controller = new controladorcat();
+      $controller->agregarCategoria();
+      break;
+    case ConfigApp::$ACTION_LOGIN:
+      $controller = new LoginController();
+      $controller->login();
+      break;
+    case ConfigApp::$ACTION_LOGOUT:
+      $controller = new LoginController();
+      $controller->logout();
+      break;
+    default:
+      echo 'Pagina no encontrada';
+      break;
+  }
+}
 ?>

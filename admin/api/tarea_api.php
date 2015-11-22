@@ -1,19 +1,20 @@
 <?php
 require_once 'api_base.php';
 require_once '../model/tareas_model.php';
+require_once '../model/tareas_model.php';
 
 class TareaApi extends ApiBase {
   private $model;
 
   function __construct($request){
     parent::__construct($request);
-    $this->model = new TareasModel();
+    $this->model = new CatModel();
   }
 
   function tarea(){
-    switch ($this->method) {
+    switch ($this->method){
       case 'GET':
-        return $this->model->getTareas();
+        return $this->model->getCategoria();
         break;
         /*
       case 'DELETE':

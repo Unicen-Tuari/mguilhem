@@ -51,20 +51,21 @@ $(document).ready(function(){
         	return;
         }        
         else{
-	        $.ajax({
-	          type: "POST",
-	          dataType: "HTML",
-	          url: event.target.action,
-	          data: new FormData(this),
-	          success: function(data){
-                cargarweb('home_min');
-	          },
-	          error: function(){
-	            alert("Error al crear categoria");
-	          },
-	          contentType : false,
-	          processData : false
-	        });
+          $.ajax({
+            type: "POST",
+            dataType: "HTML",
+            url: event.target.action,
+            data: new FormData(this),
+            success: function(data){
+              cargarweb('home_min');
+            },
+            error: function(){
+              alert("Error al crear categoria");
+            },
+            contentType : false,
+            processData : false
+          });
+          $("#newcategoria").val("");
         }
 	});
   

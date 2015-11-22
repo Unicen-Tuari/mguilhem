@@ -1,4 +1,3 @@
-//$(document).ready(function(){
   function cargarweb(web){
   $.ajax({
       type:       "GET",
@@ -104,5 +103,3 @@
     }
     else {alert('Faltan datos');}
 }
-
-//});

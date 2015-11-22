@@ -25,7 +25,7 @@ class NoticiasModel extends ModBase {
     return $cabeceras;
   }
   
-  function getNoticiaCompleta($id){
+  public function getNoticiaCompleta($id){
     $consulta = $this->db->prepare("SELECT * FROM noticia where id=?");
     $consulta->execute(array($id));
     $noticiacompleta = $consulta->fetch();

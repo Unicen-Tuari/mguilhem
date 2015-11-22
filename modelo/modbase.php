@@ -1,6 +1,7 @@
 <?php
-class ModBase
-{
+
+class ModBase{
+  
   public $noticias;
   public $db;
 
@@ -9,4 +10,5 @@ class ModBase
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 }
+
 ?>

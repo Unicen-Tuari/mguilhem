@@ -1,8 +1,10 @@
 <?php
-class CheckSesionController {
-  protected $model;
-  protected $vista;
+include_once '../controlador/controladorbase.php';
 
+class CheckSesionController extends ControllerBase{
+
+  function __construct(){}
+  
   function checkSesion(){
     session_start();
     if(!isset($_SESSION["email"])){

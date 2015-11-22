@@ -9,5 +9,12 @@ class CatModel extends ModBaseAdm {
     $consulta = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
     $consulta->execute(array($categoria));
   }
+  
+  function getCategoria(){
+    $consulta = $this->db->prepare('SELECT nombre FROM categoria');
+    $response = $consulta->execute();
+    return $response;
+  }
 }
+
 ?>

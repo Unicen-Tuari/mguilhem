@@ -1,49 +1,38 @@
 <?php
-include_once 'vista/vista.php';
 include_once 'modelo/modbase.php';//primero se carga el modelo base
 include_once 'modelo/modelouser.php';
+include_once 'controlador/controladorbase.php';
 
-class ControllerClass{
-    
-    private $view;
-    private $model;
-
-    function __construct(){
-      $this->model = new NoticiasModel();
-      $this->view  = new NoticiasView();
-    }
-
-    public function Analizar(){
-    if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) || $_REQUEST[ConfigApp::$ACTION] == ConfigApp::$ACTION_DEFAULT){
+class ControllerClass extends ControllerBase{
+  
+  function __construct(){
+    $this->model = new NoticiasModel();
+    $this->view  = new NoticiasView();
+  }
+  
+  function mostrarHome(){
     $this->view->mostrarHome($this->model->getCabeceraNoticias());
+  }
+  
+  function mostrarComidas(){
+    $this->view->comidas();
+  }  
+  
+  function mostrarEjercicios(){
+    $this->view->ejercicios();
+  }
+
+  function mostrarNoticia(){
+    if ($_REQUEST['id']!="" && $_REQUEST['categoria']!=""){
+      $id = $_REQUEST['id'];
+      $categoria = $_REQUEST['categoria'];
+      $this->view->home_con_noticia($this->model->getNoticiaCompleta($id),$categoria);
     }
-    else {
-        switch ($_REQUEST[ConfigApp::$ACTION]) 
-            {
-            case ConfigApp::$ACTION_COMIDAS:
-                $controller = new ControllerClass();
-                $this->view->comidas();
-                break;
-            case ConfigApp::$ACTION_EJERCICIOS:
-                $controller = new ControllerClass();
-                $this->view->ejercicios();
-                break;
-            case ConfigApp::$ACTION_MOSTRAR_NOTICIA:
-                $controller = new ControllerClass();
-                $id=$_REQUEST['id'];
-                $categoria=$_REQUEST['categoria'];
-                $this->view->home_con_noticia($this->model->getNoticiaCompleta($id),$categoria);
-                break;
-            case ConfigApp::$ACTION_HOME:
-                $controller = new ControllerClass();
-                $this->view->home_min($this->model->getCabeceraNoticias());
-                break;
-            default:
-                echo 'Pagina no encontrada';
-                break;
-            }
-        }     
-    }   
+  }
+  
+  function Home(){
+  $this->view->home_min($this->model->getCabeceraNoticias());
+  }   
 
 }
 

@@ -360,17 +360,32 @@ header .header-content .header-content-inner p {
 /* FOOTER */
 p.contact{color: white;}
 h1.contact{color: white;}
-div.contact{background-color: rgba(0,0,0,0.4);}
+div.contact{background-color: rgba(0,0,0,0.5);}
 #contact{
-    
     height: 970px;
     background-image: url("../img/contact.png");
 }
 
 /* admin bot margin */
+.vertical{resize: vertical;}
+
 .botmargin{
   margin-bottom: 50px;
 }
+
+/* footer mail inputs*/
+.mail-input{
+  width: 50%;
+  margin-bottom: 10px
+}
+
+button.margin-bottom{margin-bottom: 40px;}
+
+#consulta{padding: 0 35px 0 35px;}
+
+.fa-envelope-o,div i.fa-cog,.fa-facebook-official{color: white;}
+
+/* /footer */
 
 body {
     webkit-tap-highlight-color: #222;
