@@ -33,7 +33,7 @@ class LoginController extends CheckSesionController {
         die();
       }
       else {
-        $this->vista->mostrarError("Usuario y password invalidos");
+        $this->vista->mostrarError("Usuario y/o Password Invalidos");
       }
     }
     

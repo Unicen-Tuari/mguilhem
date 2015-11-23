@@ -29,10 +29,10 @@
 
   {if (isset($notificacion))}
     {if ($notificacion=="success")}
-      <div id="mailenviado" class="alert alert-success text-center col-lg-offset-4 col-lg-4">El Mail se ha enviado correctamente</div>
+      <div id="mailenviado" class="alert alert-success text-center col-lg-offset-4 col-lg-4"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> El Mail se ha enviado correctamente</div>
     {/if}
     {if ($notificacion=="error")}
-      <div id="mailenviado" class="alert alert-danger text-center col-lg-offset-4 col-lg-4">El Mail no se pudo enviar</div>
+        <div id="mailenviado" class="alert alert-danger text-center col-lg-offset-4 col-lg-4"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> El Mail no se pudo enviar</div>
     {/if}
   {/if}
 

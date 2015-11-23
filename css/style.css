@@ -390,3 +390,5 @@ button.margin-bottom{margin-bottom: 40px;}
 body {
     webkit-tap-highlight-color: #222;
 }
+
+.pull-right{margin-right: 10px;}
