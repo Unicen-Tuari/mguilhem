@@ -33,9 +33,10 @@
           <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button>
         </form>
 
-      </div> <!-- /container -->
+      </div>
 
     <script src="../js/jquery.js"></script>
+    <script src="js/md5.js"></script>
     <script src="js/loginlistener.js"></script>
 
     </body>

@@ -5,27 +5,31 @@ $(document).ready(function(){
       event.preventDefault();
 
       if ($("#txtEmail").val() ==''){
-          alert('Complete Email');
+          alert('Complete el Email');
           return;
       }
       if ($("#txtPassword").val() ==''){
-          alert('Seleccione Categoria');
+          alert('Complete el Password');
           return;
       }
       else{
+        var Password = (CryptoJS.MD5($("#txtPassword").val())).toString();
+        var txtEmail = $('#txtEmail').val();
         $.ajax({
           type: "POST",
           dataType: "HTML",
           url: event.target.action,
-          data: new FormData(this),
+          data: {
+				action: 'login',
+				txtEmail: txtEmail,
+				txtPassword: Password
+                },
           success: function(data){
             $("#html").html(data);
           },
           error: function(){
             alert("Error al Enviar el proceso");
-          },
-          contentType : false,
-          processData : false
+          }
         });
       }
    });

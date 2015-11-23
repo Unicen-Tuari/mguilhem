@@ -18,14 +18,14 @@ class LoginController extends CheckSesionController {
   }
 
   function login(){
-    if(isset($_REQUEST["txtEmail"]) && isset($_REQUEST["txtPassword"]))
-    {
+    if(isset($_REQUEST["txtEmail"]) && isset($_REQUEST["txtPassword"])){
+      
       $email = $_REQUEST["txtEmail"];
       $pass = $_REQUEST["txtPassword"];
-
       $usuario = $this->model->getUsuario($email);
-
-      if(password_verify($pass, $usuario["password"]))
+      
+      //if(password_verify($pass, $usuario["password"]))
+      if (md5($pass)==$usuario["password"])
       {
         session_start();
         $_SESSION["email"] = $email;

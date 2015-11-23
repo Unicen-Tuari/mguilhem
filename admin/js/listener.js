@@ -1,5 +1,29 @@
 $(document).ready(function(){
 
+  //logout
+  $("#logout").click("submit", function(event){
+      event.preventDefault();
+
+      $.ajax({
+        type: "POST",
+        dataType: "HTML",
+        url: event.target.action,
+        data: {
+              action: 'logout'
+              },
+        success: function(data){
+          $("#html").html(data);
+        },
+        error: function(){
+          alert("Error al Enviar el proceso");
+        }
+      });
+      
+   });
+
+
+  
+  
   //SUBMIT NOTICIA
   $("#form-noticia").on("submit", function(event){
       event.preventDefault();

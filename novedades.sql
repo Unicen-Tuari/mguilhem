@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.12
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2015 at 07:15 AM
--- Server version: 5.6.25
--- PHP Version: 5.6.11
+-- Generation Time: Nov 23, 2015 at 06:26 PM
+-- Server version: 10.1.8-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,10 +26,26 @@ SET time_zone = "+00:00";
 -- Table structure for table `categoria`
 --
 
-CREATE TABLE IF NOT EXISTS `categoria` (
+CREATE TABLE `categoria` (
   `id_cat` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `categoria`
+--
+
+INSERT INTO `categoria` (`id_cat`, `nombre`) VALUES
+(12, 'cat1'),
+(13, 'cat2'),
+(14, 'cat3'),
+(15, 'cat6'),
+(16, 'cat7'),
+(17, 'asdffdsa'),
+(18, 'z'),
+(19, 'w'),
+(20, 'cat1'),
+(21, 'asdf21');
 
 -- --------------------------------------------------------
 
@@ -37,13 +53,13 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 -- Table structure for table `noticia`
 --
 
-CREATE TABLE IF NOT EXISTS `noticia` (
+CREATE TABLE `noticia` (
   `id` int(11) NOT NULL,
   `fk_id_cat` int(11) NOT NULL,
   `path` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `titulo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -51,18 +67,18 @@ CREATE TABLE IF NOT EXISTS `noticia` (
 -- Table structure for table `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
+CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
-(1, 'glhmaxi@live.com.ar', '$2y$10$8sgSmPES1DDThWUlA.dKD.QvwO7P/snTuzDS9iZd.Kpq3zJhGy8fC');
+(2, 'glhmaxi@live.com.ar', '14e1b600b1fd579f47433b88e8d85291');
 
 --
 -- Indexes for dumped tables
@@ -95,17 +111,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
