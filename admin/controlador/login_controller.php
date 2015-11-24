@@ -24,11 +24,11 @@ class LoginController extends CheckSesionController {
       $pass = $_REQUEST["txtPassword"];
       $usuario = $this->model->getUsuario($email);
       
-      //if(password_verify($pass, $usuario["password"]))
       if (md5($pass)==$usuario["password"])
       {
         session_start();
         $_SESSION["email"] = $email;
+        $_SESSION['login_time'] = time();
         header("Location: index.php");
         die();
       }

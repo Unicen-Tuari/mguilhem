@@ -1,10 +1,7 @@
 <?php
+include_once 'modbaseadm.php';
 class NovModel extends ModBaseAdm {
 
-  /* no hace falta, hace el construct del padre
-  function __construct() {  }
-  */
-  
   private function subirImagenes($imagenes){
     $carpeta  = "../uploads/imagenes/";
     $carpetas = "uploads/imagenes/";
@@ -15,7 +12,7 @@ class NovModel extends ModBaseAdm {
         $uid= uniqid();
         $destinos_finales[] = $carpetas.$uid.$imagenes["name"][$key];
         $destino_server[] = $carpeta.$uid.$imagenes["name"][$key];
-        move_uploaded_file($value, end($destino_server)); //se guarda la img del tmp al "../uploads/imagenes/"
+        move_uploaded_file($value, "../".end($destino_server)); //se guarda la img del tmp al "../uploads/imagenes/"
     }
     return $destinos_finales; //se devuelve la img con la direccion "/uploads/imagenes/" para q se guarde en el bd
   }

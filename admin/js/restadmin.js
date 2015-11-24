@@ -19,19 +19,21 @@ function cargarid($nombre){
     texto.value = $nombre;
 }
 
-function borrarnoticia(id_noticia,web){
+function borrarnoticia(id_noticia){
+  console.log(id_noticia);
   $.ajax({
-      type:       "POST",
-      dataType:   "html",
-      url:        "index.php",
-      data: {action: web, id_noticia: id_noticia},
-      success: function(data){
-          cargarweb('home_min');
-      },
-      error: function(){
-          alert("Error");
-      }
-    })
+    method:   "DELETE",
+    dataType: "HTML",
+    url:      "api/noticia/"+id_noticia,
+    data: {id_noticia: id_noticia}
+  })
+  .done(function() {
+    alert("done");
+  })
+  .fail(function() {
+    alert("fail");
+  });
+  
 };
 
 // guarda la CATEGORIA seleccionada en el dropdown
@@ -41,30 +43,67 @@ function cargarid($nombre){
   texto.value = $nombre;
 }
 
+function borrarCategoria(categoria){
+  $.ajax({
+    method:   "DELETE",
+    dataType: "HTML",
+    url:      "api/categoria/"+categoria,
+    data: {categoria:categoria}
+  })
+  .done(function() {
+  alert("done");
+})
+  .fail(function() {
+          alert("fail");
+        });
+}
+
+function cambiarNombreCat(categoria){
+  var newcat = '#'.concat(categoria);
+  if ($(newcat).val() == ''){
+    alert('Escribe un nuevo nombre para la categoria');
+    return;
+  }
+  var nombre = $(newcat).val();
+  $.ajax({
+          method: "PUT",
+          dataType: "HTML",
+          url: "api/categoria/"+categoria+"/"+nombre,
+          data: {categoria:categoria,nombre:nombre}
+        })
+        .done(function() {
+          alert("done");
+        })
+        .fail(function() {
+          alert("fail");
+        });
+}
+
+
 $(document).ready(function(){
   //SUBMIT CATEGORIA
   $("#form-categoria").on("submit", function(event){
         event.preventDefault();
         
         if ($("#newcategoria").val() == ''){
-        	alert('Poner el Nombre de la Categoría');
+        	alert('Poner el Nombre de la Nueva Categoría');
         	return;
-        }        
+        }
+        
         else{
+          var categoria = $("#newcategoria").val();
           $.ajax({
-            type: "POST",
+            method: "POST",
             dataType: "HTML",
-            url: event.target.action,
-            data: new FormData(this),
-            success: function(data){
-              cargarweb('home_min');
-            },
-            error: function(){
-              alert("Error al crear categoria");
-            },
-            contentType : false,
-            processData : false
-          });
+            url: "api/categoria/"+categoria,
+            data: {categoria:categoria}
+          })
+          .done(function() {
+          alert("done");
+        })
+          .fail(function() {
+          alert("fail");
+        });
           $("#newcategoria").val("");
         }
 	});

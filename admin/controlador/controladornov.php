@@ -4,9 +4,9 @@ include_once 'modelo/modelonov.php';
 class controladornov extends CheckSesionController{
 
   function __construct(){
+    $this->checkSesion();
     $this->vista = new NoticiasView();
     $this->model = new NovModel();
-    $this->checkSesion();
   }
   
   function mostrarHome(){

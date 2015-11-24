@@ -1,6 +1,5 @@
 <?php
 include_once 'config/config_app.php';
-//include_once 'controlador/controladoradm.php';
 include_once 'vista/vista.php'; 
 include_once '../modelo/modbase.php';                 // modelo base levanta la BD
 include_once 'modelo/modbaseadm.php';                 // modelo base admin funcion mostrar noticias

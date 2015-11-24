@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2015 at 06:26 PM
+-- Generation Time: Nov 24, 2015 at 03:47 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -30,22 +30,6 @@ CREATE TABLE `categoria` (
   `id_cat` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Dumping data for table `categoria`
---
-
-INSERT INTO `categoria` (`id_cat`, `nombre`) VALUES
-(12, 'cat1'),
-(13, 'cat2'),
-(14, 'cat3'),
-(15, 'cat6'),
-(16, 'cat7'),
-(17, 'asdffdsa'),
-(18, 'z'),
-(19, 'w'),
-(20, 'cat1'),
-(21, 'asdf21');
 
 -- --------------------------------------------------------
 
@@ -111,12 +95,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
@@ -130,7 +114,7 @@ ALTER TABLE `usuarios`
 -- Constraints for table `noticia`
 --
 ALTER TABLE `noticia`
-  ADD CONSTRAINT `fk_id_cat` FOREIGN KEY (`fk_id_cat`) REFERENCES `categoria` (`id_cat`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_id_cat` FOREIGN KEY (`fk_id_cat`) REFERENCES `categoria` (`id_cat`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

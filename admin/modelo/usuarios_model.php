@@ -1,7 +1,7 @@
 <?php
-include_once '../modelo/modbase.php';
+include_once 'modbaseadm.php';
 
-class UsuariosModel extends ModBase{
+class UsuariosModel extends ModBaseAdm{
 
   function getUsuario($email){
     $consulta = $this->db->prepare("SELECT * FROM usuarios WHERE email = ?");

@@ -1,9 +1,7 @@
 <?php
-class CatModel extends ModBaseAdm {
+include_once 'modbaseadm.php';
 
-  /* no hace falta, hace el construct del padre
-  function __construct() {  }
-  */
+class CatModel extends ModBaseAdm {
   
   function agregarCategoria($categoria){
     $consulta = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
@@ -14,6 +12,16 @@ class CatModel extends ModBaseAdm {
     $consulta = $this->db->prepare('SELECT nombre FROM categoria');
     $response = $consulta->execute();
     return $response;
+  }
+  
+  function borrarCategoria($categoria){
+    $consulta = $this->db->prepare('DELETE FROM categoria WHERE nombre=?');
+    $consulta->execute(array($categoria));
+  }
+  
+  function cambiarNombreCat($categoria,$nombre){
+    $consulta = $this->db->prepare('UPDATE categoria SET nombre=? WHERE nombre=?');
+    $consulta->execute(array($nombre,$categoria));
   }
 }
 

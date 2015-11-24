@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   //logout
+  
   $("#logout").click("submit", function(event){
       event.preventDefault();
 
@@ -12,7 +13,7 @@ $(document).ready(function(){
               action: 'logout'
               },
         success: function(data){
-          $("#html").html(data);
+          window.location.reload();
         },
         error: function(){
           alert("Error al Enviar el proceso");
@@ -45,19 +46,24 @@ $(document).ready(function(){
           return;
       }
       else{
+        var img = $("#imagesToUpload").val();
+        var idcat = $("#idcategoria").val();
+        var titulo = $("#titulo").val();
+        var desc = $("#descripcion").val();
+        
         $.ajax({
-          type: "POST",
+          method: "POST",
           dataType: "HTML",
-          url: event.target.action,
+          url: "api/noticia/"+img+"/"+idcat+"/"+titulo+"/"+desc,
           data: new FormData(this),
-          success: function(data){
-            cargarweb('home_min');
-          },
-          error: function(){
-            alert("Error al Enviar el proceso");
-          },
           contentType : false,
           processData : false
+        })
+        .done(function() {
+          alert("done");
+        })
+        .fail(function() {
+          alert("fail");
         });
       }
    });
