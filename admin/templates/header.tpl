@@ -13,12 +13,14 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css"/>
     
     <!-- Cargamos Awesome Fonts -->
+    <link rel="stylesheet" href="css/font-awesome-animation.min.css" type="text/css">  
     <link rel="stylesheet" href="../css/Awesome_Fonts.css" type="text/css"/>
     <link rel="stylesheet" href="../css/Awesome_Fonts2.css" type="text/css"/>
-
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css">
+    
+  
     <!-- Mi estilo CSS -->
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-
     
 </head>
 

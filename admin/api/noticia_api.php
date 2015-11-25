@@ -17,16 +17,17 @@ class NoticiaApi extends ApiBase {
         break;*/
       case 'DELETE':
         if(count($this->args) == 1) $this->model->borrarNoticia($this->args[0]);
-        break;/*
+        break;
       case 'PUT':
-        if(count($this->args) == 2) $this->model->cambiarNombreCat($this->args[0],$this->args[1]);
-        break;*/
+        //if(count($this->args) > 2)
+        $this->model->cambiarValorNot($this->args[0],$this->args[1],$this->args[2]);
+        break;
       case 'POST':
         if($_POST['descripcion']!="" &&
-           $_POST['titulo']!="" &&
+           $_POST['titulonew']!="" &&
            isset($_FILES['imagesToUpload']) &&
            $_POST['categoria']!=""){
-        $this->model->agregarNoticia($_POST['descripcion'],$_FILES['imagesToUpload'],$_POST['categoria'],$_POST['titulo']);
+        return $this->model->agregarNoticia($_POST['descripcion'],$_FILES['imagesToUpload'],$_POST['categoria'],$_POST['titulonew']);
         }
         break;
       default:

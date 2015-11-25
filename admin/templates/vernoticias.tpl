@@ -1,8 +1,5 @@
 <div class="novedades col-lg-12">
-    
-
-      <!-- NOVEDADES -->
-
+    <!-- NOVEDADES -->
     <div class="col-sm-12 col-md-12 text-center">
         <h1>Novedades</h1>
     </div>
@@ -11,17 +8,49 @@
       <div class="row">
         <div class="col-sm-12 col-md-12">
           <ul class="list-group">
-            {foreach $noticias as $categoria}
-            <li class="list-group-item"><h2>Categoria: {$categoria['nombre']}<a class="glyphicon glyphicon-trash pointer" onclick="borrarCategoria('{$categoria['nombre']}')" ></a></h2><form><input id="{$categoria['nombre']}" type="text" placeholder="{$categoria['nombre']}"></input><a onclick="cambiarNombreCat('{$categoria['nombre']}')" class="btn btn-default">Cambiar Nombre</a></form>
-                {if ($categoria['imagenes'])}
-                  {foreach $categoria['imagenes'] as $noticia}
-                    <h3>{$noticia["titulo"]} <a class="glyphicon glyphicon-trash pointer" onclick="borrarnoticia('{$noticia['id']}')"></a></h3>
-                    <br/><img src="../{$noticia['path']}" alt="imagen-{$noticia['id']}-noticia-{$categoria['id']}" class="img-thumbnail" /><br/>
-                    {$noticia["descripcion"]}
-                  {/foreach}
-                {else}<p>Categoría Vacía</p>
-                {/if}
-            {/foreach}
+            <div id="categorias">
+              {foreach $noticias as $categoria}
+                <div id="categoria{$categoria['id_cat']}">
+                  <li class="list-group-item">
+                    <h2>Categoria: <b id="cat{$categoria['id_cat']}">{$categoria['nombre']}</b>
+                      <i class="fa fa-wrench faa-wrench animated-hover pointer" onclick="toggleview('.wrenchcat{$categoria['nombre']}')"></i>
+                      <a class="glyphicon glyphicon-trash pointer invi wrenchcat{$categoria['nombre']}" onclick="borrarCategoria('{$categoria['id_cat']}')"></a>
+                    </h2>
+                    <form class="invi wrenchcat{$categoria['nombre']}">
+                      <input id="cata{$categoria['id_cat']}" type="text" placeholder="{$categoria['nombre']}"></input>
+                      <a onclick="cambiarNombreCat('{$categoria['id_cat']}')" class="btn btn-default">Cambiar Nombre Categoria</a>
+                    </form>
+                      <div id="noticias{$categoria['id_cat']}">
+                      {if ($categoria['imagenes'])}
+                        {foreach $categoria['imagenes'] as $noticia}
+                          <div id="noticia{$noticia['id']}">
+                            <h3 id="titulo{$noticia['id']}">{$noticia["titulo"]}</h3>
+                            <h3>
+                              <i class="fa fa-wrench faa-wrench animated-hover pointer" onclick="toggleview('.wrenchtit{$noticia['id']}')"></i>
+                              <a class="glyphicon glyphicon-trash pointer invi wrenchtit{$noticia['id']}" onclick="borrarnoticia('{$noticia['id']}')"></a>
+                            </h3>
+                            <form class="invi wrenchtit{$noticia['id']}">
+                              <input id="cambiar{$noticia['titulo']}" type="text" placeholder="{$noticia['titulo']}"></input>
+                              <a onclick="cambiarValorNot('{$noticia['id']}','titulo','cambiar{$noticia['titulo']}')" class="btn btn-default">Cambiar Titulo</a>
+                            </form>
+                            <br/>
+                            <img src="../{$noticia['path']}" alt="imagen-{$noticia['id']}-noticia-{$categoria['id']}" class="img-thumbnail" />
+                            <br/>
+                            <c id="descripcion{$noticia['id']}">{$noticia["descripcion"]}</c>
+                            <i class="fa fa-wrench faa-wrench animated-hover pointer" onclick="toggleview('.wrenchdesc{$noticia['id']}')"></i>
+                            <form class="invi wrenchdesc{$noticia['id']}">
+                              <input id="descripcioninput{$noticia['id']}" type="text" placeholder="descripcion nueva"></input>
+                              <a onclick="cambiarValorNot('{$noticia['id']}','descripcion','descripcioninput{$noticia['id']}')" class="btn btn-default">Cambiar Texto</a>
+                            </form>
+                          </div>
+                        {/foreach}
+                      </div>
+                  </li>
+                </div>
+                  {else}<p>Categoría Vacía</p>
+                  {/if}
+              {/foreach}
+            </div>
           </ul>
         </div>
       </div>
@@ -31,21 +60,15 @@
 <!-- AGREGAR NOTICIA -->      
         <div class="col-md-6 botmargin">
           <form action="index.php?action=agregar_noticia" method="POST" enctype="multipart/form-data" id="form-noticia">
-            <!-- html -->
-            
-     <!--   <div class="form-group">
-                <label for="categoria">Categoria</label>
-                <input type="text" class="form-control" id="categoria" name="categoria" placeholder="categoria: Dieta/Ejercicio">
-            </div> -->
             
             <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo de noticia">
+              <label for="titulonew">Titulo</label>
+              <input type="text" class="form-control" id="titulonew" name="titulonew" placeholder="Titulo de noticia">
             </div>
             
-              <div class="form-group">
-                <label for="descripcion">Texto</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
+            <div class="form-group">
+              <label for="descripcion">Texto</label>
+              <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
             </div>
               
             <div class="form-group">
@@ -55,9 +78,9 @@
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Categoria <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <ul id="catedrop"class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     {foreach $noticias as $categoria}
-                    <li onclick="cargarid('{$categoria['nombre']}')">{$categoria['nombre']} </li>
+                      <li id="dropdown{$categoria['id_cat']}" onclick="cargarid('{$categoria['id_cat']}')">{$categoria['nombre']} </li>
                     {/foreach}
                   </ul>
                 </div>

@@ -95,9 +95,9 @@ iframe.youtube{
 
 }
 
-.invisible{
-    display: none;
-}
+.invi{display: none;}
+
+.visible{display:block !important;}
 
 /* <NAVIGATION>  */
 a.page-scroll, .pointer{

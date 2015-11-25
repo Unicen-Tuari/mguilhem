@@ -1,0 +1,1 @@
+<li id="dropdown{{id_categoria}}" onclick="cargarid('{{id_categoria}}')">{{nombre}} </li>

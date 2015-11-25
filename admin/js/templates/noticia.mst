@@ -1,0 +1,20 @@
+<div id="noticia{{idnot}}">
+  <h3 id="titulo{{idnot}}">{{titulo}}</h3>
+  <h3>
+    <i class="fa fa-wrench faa-wrench animated-hover pointer" onclick="toggleview('.wrenchtit{{idnot}}')"></i>
+    <a class="glyphicon glyphicon-trash pointer invi wrenchtit{{idnot}}" onclick="borrarnoticia('{{idnot}}')"></a>
+  </h3>
+  <form class="invi wrenchtit{{idnot}}">
+    <input id="cambiar{{titulo}}" type="text" placeholder="{{titulo}}"></input>
+    <a onclick="cambiarValorNot('{{idnot}}','titulo','cambiar{{titulo}}')" class="btn btn-default">Cambiar Titulo</a>
+  </form>
+  <br/>
+  <img src="../{{dimagen}}" alt="imagen-{{idnot}}-noticia-{{idcat}}" class="img-thumbnail" />
+  <br/>
+  <c id="descripcion{{idnot}}">{{desc}}</c>
+  <i class="fa fa-wrench faa-wrench animated-hover pointer" onclick="toggleview('.wrenchdesc{{idnot}}')"></i>
+  <form class="invi wrenchdesc{{idnot}}">
+    <input id="descripcioninput{{idnot}}" type="text" placeholder="descripcion nueva"></input>
+    <a onclick="cambiarValorNot('{{idnot}}','descripcion','descripcioninput{{idnot}}')" class="btn btn-default">Cambiar Texto</a>
+  </form>
+</div>

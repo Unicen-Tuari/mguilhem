@@ -1,0 +1,14 @@
+<div id="categoria{{id_categoria}}">
+  <li class="list-group-item">
+    <h2>Categoria: <b id="cat{{id_categoria}}">{{nombre}}</b>
+      <i class="fa fa-wrench faa-wrench animated-hover pointer" onclick="toggleview('.wrenchcat{{nombre}}')"></i>
+      <a class="glyphicon glyphicon-trash pointer invi wrenchcat{{nombre}}" onclick="borrarCategoria('{{id_categoria}}')"></a>
+    </h2>
+    <form class="invi wrenchcat{{nombre}}">
+      <input id="cata{{id_categoria}}" type="text" placeholder="{{nombre}}"></input>
+      <a onclick="cambiarNombreCat('{{id_categoria}}')" class="btn btn-default">Cambiar Nombre Categoria</a>
+    </form>
+    <div id="noticias{{id_categoria}}">
+    </div>
+  </li>
+</div>

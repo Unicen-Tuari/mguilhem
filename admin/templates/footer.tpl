@@ -5,6 +5,8 @@
     <script src="js/restadmin.js"></script>
     <script src="js/mustache.js"></script>
 
+    <!-- iconos Font Awesome animados-->
+    <script src="../js/wow.min.js"></script>
 </body>
 
 </html>

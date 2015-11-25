@@ -17,36 +17,30 @@ class NovModel extends ModBaseAdm {
     return $destinos_finales; //se devuelve la img con la direccion "/uploads/imagenes/" para q se guarde en el bd
   }
 
-  function agregarNoticia($descripcion, $imagenes,$categoria,$titulo){
+  function agregarNoticia($descripcion, $imagenes,$id_cat,$titulo){
     try{
-        $destinos_finales=$this->subirImagenes($imagenes);
-        
-        //Inserto la noticia
-        $this->db->beginTransaction(); //inicio transaccion
-        
-        // si no existe la categoria, la crea
-        $consulta = $this->db->prepare('SELECT * FROM categoria WHERE nombre = ?');
-        $consulta->execute(array($categoria));
-        $id = $consulta->fetch();
+      $destinos_finales=$this->subirImagenes($imagenes);//paso imagenes del fakepath al verdadero
 
-        if ($id == null){
-            $consulta = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
-            $consulta->execute(array($categoria));
-            $id_noticia = $this->db->lastInsertId();
-            }
-        else{
-            $id_noticia = $id['id_cat'];
-        }
+      $this->db->beginTransaction(); //inicio transaccion
 
-        //Insertar las imagenes
-        foreach ($destinos_finales as $key => $value) {
-            $consulta = $this->db->prepare('INSERT INTO noticia(fk_id_cat,path,descripcion,titulo) VALUES(?,?,?,?)');
-            $consulta->execute(array($id_noticia, $value,$descripcion,$titulo));
-        }
-        $this->db->commit(); //todo ok, subo transaccion
+      $direimagen="";
+      $lastid="";
+      //Insertar las imagenes
+      foreach ($destinos_finales as $key => $value) {
+        $consulta = $this->db->prepare('INSERT INTO noticia(fk_id_cat,path,descripcion,titulo) VALUES(?,?,?,?)');
+        $consulta->execute(array($id_cat, $value,$descripcion,$titulo));
+        $lastid=$this->db->lastInsertId();
+        $direimagen=$value;
+      }
+      $this->db->commit(); //todo ok, subo transaccion
+      
+      $idydire=[];
+      $idydire['idnot']=$lastid;
+      $idydire['direimagen']=$direimagen;
+      return $idydire;
     }
     catch(Exception $e){
-    $this->db->rollBack();
+      $this->db->rollBack();
     }
 }
 
@@ -75,5 +69,15 @@ class NovModel extends ModBaseAdm {
     //}
   }
 
+  function cambiarValorNot($id,$sector,$nombre){
+    if ($sector == "titulo"){
+      $consulta = $this->db->prepare('UPDATE noticia SET titulo=? WHERE id=?');
+      $consulta->execute(array($nombre,$id));
+    }
+    if ($sector == "descripcion"){
+      $consulta = $this->db->prepare('UPDATE noticia SET descripcion=? WHERE id=?');
+      $consulta->execute(array($nombre,$id));
+    }
+  }
 }
 ?>
