@@ -1,9 +1,7 @@
 <?php
-include_once '../controlador/controladorbase.php';
+include_once 'controladorbase.php';
 
 class CheckSesionController extends ControllerBase{
-
-  function __construct(){}
   
   function checkSesion(){
     session_start();

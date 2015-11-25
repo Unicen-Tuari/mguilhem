@@ -1,14 +1,14 @@
+function toggleview(clas){
+  $(clas).toggleClass("visible");
+} // noti visible invisible
+
 function cambiarValorNot(id,sector,newinput){
   var input = '#'.concat(newinput);
-  console.log(input);
   if ($(input).val() == ''){
     alert('Escribe un nuevo nombre para: '+sector);
     return;
   }
   var nombre = $(input).val();
-  console.log(id);
-  console.log(sector);
-  console.log(nombre);
   $.ajax({
     method: "PUT",
     dataType: "HTML",
@@ -33,6 +33,22 @@ function MustacheNuevaNot(categoria,idcat){
       var divnoticias = "#noticias".concat(idcat);
       $(divnoticias).append(rendered);
     }
+  });
+};
+
+function borrarnoticia(id_noticia){
+  var notiborrada ='#noticia'.concat(id_noticia);
+  $.ajax({
+    method:   "DELETE",
+    dataType: "HTML",
+    url:      "api/noticia/"+id_noticia,
+    data: {id_noticia: id_noticia}
+  })
+  .done(function() {
+    $(notiborrada).remove();
+  })
+  .fail(function() {
+    alert("no se pudo borrar la noticia");
   });
 };
 

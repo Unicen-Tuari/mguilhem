@@ -1,0 +1,1 @@
+setTimeout(function () {window.location.href = "index.php?action=login";}, 600000);//5000 = 5seg 600000= 10min

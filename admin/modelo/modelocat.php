@@ -25,8 +25,16 @@ class CatModel extends ModBaseAdm {
   }
   
   function borrarCategoria($categoria){
-    $consulta = $this->db->prepare('DELETE FROM categoria WHERE id_cat=?');
-    $consulta->execute(array($categoria));
+    try{
+      $this->db->beginTransaction();
+      $consulta = $this->db->prepare('DELETE FROM categoria WHERE id_cat=?');
+      $consulta->execute(array($categoria));
+      $this->db->commit();
+    }
+    catch(Exception $e){
+      $this->db->rollBack();
+      return 'No se agrego la categoria';
+    }
   }
   
   function cambiarNombreCat($categoria,$nombre){

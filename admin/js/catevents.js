@@ -15,31 +15,10 @@
 MVC
 */ 
 
-function toggleview(clas){
-  $(clas).toggleClass("visible");
-} //visible invisible
-
-function borrarnoticia(id_noticia){
-  var notiborrada ='#noticia'.concat(id_noticia);
-  $.ajax({
-    method:   "DELETE",
-    dataType: "HTML",
-    url:      "api/noticia/"+id_noticia,
-    data: {id_noticia: id_noticia}
-  })
-  .done(function() {
-    $(notiborrada).remove();
-  })
-  .fail(function() {
-    alert("no se pudo borrar la noticia");
-  });
-  
-};
-
-function cargarid(nombre){
+function cargarid(idcat,nombre){
   $('#dropdownMenu2').html(nombre+" <span class='caret'></span>");
   var texto = document.getElementById("idcategoria");
-  texto.value = nombre;
+  texto.value = idcat;
 }// guarda la CATEGORIA seleccionada en el dropdown
 
 function borrarCategoria(id_cat){
@@ -76,9 +55,11 @@ function cambiarNombreCat(categoria){
   })
   .done(function() {
     var idcate ='#cat'.concat(categoria);
+    var idcatea ='#cata'.concat(categoria);
     $(idcate).html(nombre);
+    $(idcatea).attr("placeholder",nombre);
     $('#dropdown'+categoria).html(nombre);
-    $('#dropdown'+categoria).attr('onclick',"cargarid('"+categoria+"')");
+    $('#dropdown'+categoria).attr('onclick',"cargarid('"+categoria+"','"+nombre+"')");
   })
   .fail(function() {
     alert("Error en cambiar el nombre a la categoria");

@@ -80,7 +80,7 @@
                   </button>
                   <ul id="catedrop"class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     {foreach $noticias as $categoria}
-                      <li id="dropdown{$categoria['id_cat']}" onclick="cargarid('{$categoria['id_cat']}')">{$categoria['nombre']} </li>
+                      <li id="dropdown{$categoria['id_cat']}" onclick="cargarid('{$categoria['id_cat']}','{$categoria['nombre']}')">{$categoria['nombre']} </li>
                     {/foreach}
                   </ul>
                 </div>
@@ -96,6 +96,3 @@
           </form>
         </div>
 <!-- /AGREGAR NOTICIA -->
-    
-<script src="js/listener.js"></script>
-

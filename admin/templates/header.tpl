@@ -25,8 +25,6 @@
 </head>
 
 <body>
-    <!-- jQuery  -->
-    <script src="../js/jquery.js"></script>
     
 <!-- caja de errores -->
       

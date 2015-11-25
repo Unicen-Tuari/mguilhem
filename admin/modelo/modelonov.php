@@ -45,39 +45,34 @@ class NovModel extends ModBaseAdm {
 }
 
   function borrarNoticia($id_noticia){
-    // COMENTE LA PARTE DE SI LA CATEGORIA ESTABA SIN NOTICIAS, SE BORRABA LA CATEGORIA
-    
-    //guarda categoria
-    
-    //$consulta= $this->db->prepare('SELECT fk_id_cat FROM noticia WHERE id=?');
-    //$consulta->execute(array($id_noticia));
-    //$categoria= $consulta->fetch();
-    
-    //borra noticia
-    $consulta = $this->db->prepare('DELETE FROM noticia WHERE id=?');
-    $consulta->execute(array($id_noticia));
-    
-    //pregunta si categoria tiene noticias
-    //$consulta = $this->db->prepare('SELECT * FROM noticia WHERE fk_id_cat=?');
-    //$consulta->execute(array($categoria[0]));
-    //$id = $consulta->fetch();
-      
-    //no tiene noticias? borra categoria
-    //if ($id == null){ 
-    //$consulta = $this->db->prepare('DELETE FROM categoria WHERE id_cat=?');
-    //$consulta->execute(array($categoria[0]));
-    //}
+    try{
+      $this->db->beginTransaction();
+      $consulta = $this->db->prepare('DELETE FROM noticia WHERE id=?');
+      $consulta->execute(array($id_noticia));
+      $this->db->commit();
+    }
+    catch(Exception $e){
+      $this->db->rollBack();
+    }
   }
 
   function cambiarValorNot($id,$sector,$nombre){
-    if ($sector == "titulo"){
-      $consulta = $this->db->prepare('UPDATE noticia SET titulo=? WHERE id=?');
-      $consulta->execute(array($nombre,$id));
+    try{
+      $this->db->beginTransaction();
+      if ($sector == "titulo"){
+        $consulta = $this->db->prepare('UPDATE noticia SET titulo=? WHERE id=?');
+        $consulta->execute(array($nombre,$id));
+      }
+      if ($sector == "descripcion"){
+        $consulta = $this->db->prepare('UPDATE noticia SET descripcion=? WHERE id=?');
+        $consulta->execute(array($nombre,$id));
+      }
+      $this->db->commit();
     }
-    if ($sector == "descripcion"){
-      $consulta = $this->db->prepare('UPDATE noticia SET descripcion=? WHERE id=?');
-      $consulta->execute(array($nombre,$id));
+    catch(Exception $e){
+      $this->db->rollBack();
     }
   }
+    
 }
 ?>

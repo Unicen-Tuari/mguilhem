@@ -1,6 +1,10 @@
 <?php
 require_once 'categoria_api.php';
 require_once 'noticia_api.php';
+include_once '../controlador/checksesioncontroller.php';
+
+$controller = new CheckSesionController;
+$controller->checkSesion();
 
 $url_elements = explode('/', rtrim($_REQUEST['parametros'], '/'));  // divido la accion con los parametros
 if(count($url_elements)>0){                                         // si existen parametros actúo
